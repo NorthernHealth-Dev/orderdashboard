@@ -4,6 +4,7 @@ deployment:
     - export DEPLOYPATH=/home/orderyhd/public_html/orderdashboard/
     - cp *.html $DEPLOYPATH
     - cp *.png $DEPLOYPATH
+    - cp *.jpg $DEPLOYPATH
+    - cp *.css $DEPLOYPATH
     - cp *.json $DEPLOYPATH
     - cp *.js $DEPLOYPATH
-    - cp *.jpg $DEPLOYPATH
