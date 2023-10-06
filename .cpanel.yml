@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/orderyhd/public_html/orderdashboard
+    - export DEPLOYPATH=/home/orderyhd/public_html/orderdashboard/
