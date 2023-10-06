@@ -1,0 +1,426 @@
+<html>
+	<head>
+		<title>EHR Preview</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="cerner.css">
+		<script src="data.js"></script>
+		<script src="cerner.js"></script>
+
+	</head>
+
+	<body style="overflow: hidden;">
+
+	<div class="add_message" id="add_message_window">
+	
+		<center>
+			<h2>Physician / Stakeholder Feedback</h2>
+			<table style="width: 80%; left: 10%; font-family: arial;">
+				<tr>
+					<td style="text-align: right;">Title:</td>
+					<td><div id="order_title_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">Author:</td>
+					<td><div id="msg_by_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;">Dr. Bob Smith...</div></td>
+				</tr>
+				<!--
+				<tr>
+					<td style="text-align: right;">To:</td>
+					<td><div id="msg_to_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				-->
+				<tr>
+					<td style="text-align: right;">Date:</td>
+					<td><div id="msg_date_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				
+				<!--
+				<tr>
+					<td style="text-align: right;">Type:</td>
+					<td>
+					<select name="note_type" id="note_type">
+						<option value="message">Message</option>
+						<option value="task">Task</option>
+						<option value="decision">Decision</option>
+					</select>
+					</td>
+				</tr>
+				-->
+				
+				<tr>
+					<td style="text-align: right;">Message:</td>
+					<td><div id="message_field" class="inputfield" contenteditable="true" style="width: 300px; height: 150px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;" colspan=2>
+						<center>
+						<div class="mainbutton" onclick="closeAddMessageWindow();">Cancel</div>
+						<div class="mainbutton" onclick="saveChatMessage();">Add Comment</div>
+						</center>
+					</td>
+				</tr>
+			
+			</table>
+		</center>
+	
+	</div>
+	
+	<div id="doctor_message" class="doctor_popup">
+	
+		<p>Specific questions for physician feedback will appear here.
+		
+		<p>
+			<center>
+				<div class="mainbutton" onclick="closeDoctorMsgWindow();">Cancel</div>
+			</center>
+		</p>
+	
+	</div>
+
+
+		<div class="comment_button" onclick="ShowComments();"><img src="safercare_icon.png" style="height: 70%;">Comments</div>
+	
+		<div id="comment_box" class="comment_box">
+
+			<div class="add_comment_form">
+
+				<div class="mainbutton" onclick="showAddMessageWindow();">Add Comment</div>
+				<div class="mainbutton" onclick="CloseComments();">Close Comments</div>
+				
+			</div>
+			
+			<div class="comment_list" id="main_body_msgs">
+			
+				<br>&nbsp;
+				<img src="working.gif" style="width: 50%;">
+			
+			</div>
+			
+		</div>
+	
+		<div class="mainpanel">
+			<div class="titlebar">
+				<div class="window_icon" style="height: 95%; top: 2%; cursor: pointer;">
+					<img src="powerchart_window_icon.jpg" style="height: 100%;">
+				</div>
+				<div class="titlebartext">
+					Smith, Bob - 0003827 Opened by Fred Smithers, Internal Medicine
+				</div>
+				<div class="window_buttons" style="cursor: pointer; height: 70%; right: 3px; top: 15%; position: absolute;">
+					<img src="window_buttons.jpg" style="height: 100%;">
+				</div>
+
+			</div>
+			<div class="menubar">
+				<div class="topmenuitem" style="margin-left: 3px">Task</div>
+				<div class="topmenuitem">Edit</div>
+				<div class="topmenuitem">View</div>
+				<div class="topmenuitem">Patient</div>
+				<div class="topmenuitem">Chart</div>
+				<div class="topmenuitem">Links</div>
+				<div class="topmenuitem">Notifications</div>
+				<div class="topmenuitem">Options</div>
+				<div class="topmenuitem">Current</div>
+				<div class="topmenuitem">Add</div>
+				<div class="topmenuitem">Help</div>
+
+			</div>
+			<div class="toolbar1">
+				<div id="toolbar_handle" style="width: 15px; height: 80%; top: 10%; position: relative; float: left;">
+					<img src="toolbar_control.jpg" style="height: 100%;">
+				</div>
+				<div id="toolbar_button" class="toolbarbutton" style="width: 55px; position: relative; float: left;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="house_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 17px; width: 20px; position: absolute; font-size: 12px;">Home</div>
+				</div>
+
+				<div id="toolbar_button2" class="toolbarbutton" style="width: 110px; top: 0px; position: relative; float: left;">
+					<div style="top: 6px; left: 0; height: 100%; position: absolute;"><img src="mail_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 19px; width: 100px; position: absolute; font-size: 12px;">Message Centre</div>
+				</div>
+
+				<div id="toolbar_button3" class="toolbarbutton" style="width: 80px; top: 0px; float: left; position: relative;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="patient_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 11px; width: 100px; position: absolute; font-size: 12px;">Patient List</div>
+				</div>
+
+				<div id="toolbar_button4" class="toolbarbutton" style="width: 120px; top: 0px; float: left; position: relative;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="handoff_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 16px; width: 100px; position: absolute; font-size: 12px;">Physician Handoff</div>
+				</div>
+
+				<div id="toolbar_button5" class="toolbarbutton" style="width: 120px; top: 0px; float: left; position: relative;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="handoff_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 16px; width: 100px; position: absolute; font-size: 12px;">Dynamic Worklist</div>
+				</div>
+
+				<div id="toolbar_button6" class="toolbarbutton" style="width: 105px; top: 0px; float: left; position: relative;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="handoff_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 16px; width: 100px; position: absolute; font-size: 12px;">eHealth Viewer</div>
+				</div>
+
+				<div id="toolbar_handle" style="height: 80%; top: 10%; width: 15px; float: left; position: relative;">
+					<img src="toolbar_control.jpg" style="height: 100%;">
+				</div>
+
+				<div id="toolbar_button7" class="toolbarbutton" style="width: 125px; top: 0px; float: left; position: relative;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="globe_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 16px; width: 100px; position: absolute; font-size: 12px;">PharmaNet Viewer</div>
+				</div>
+
+				<div id="toolbar_button8" class="toolbarbutton" style="width: 160px; top: 0px; float: left; position: relative;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="globe_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 16px; width: 140px; position: absolute; font-size: 12px;">PowerChart Web Manual</div>
+				</div>
+				
+			</div>
+			<div class="toolbar2">
+				<div id="toolbar_handle2" style="width: 15px; height: 80%; top: 10%; position: relative; float: left;">
+					<img src="toolbar_control.jpg" style="height: 100%;">
+				</div>
+				<div id="toolbar_button9" class="toolbarbutton" style="width: 50px; position: relative; float: left;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="exit_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 17px; width: 15px; position: absolute; font-size: 12px;">Exit</div>
+				</div>
+
+				<div id="toolbar_button10" class="toolbarbutton" style="width: 85px; position: relative; float: left;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="calculator_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 17px; width: 50px; position: absolute; font-size: 12px;">Calculator</div>
+				</div>
+
+				<div id="toolbar_button11" class="toolbarbutton" style="width: 70px; position: relative; float: left;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="tear_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 17px; width: 50px; position: absolute; font-size: 12px;">Tear Off</div>
+				</div>
+
+				<div id="toolbar_button12" class="toolbarbutton" style="width: 120px; position: relative; float: left;">
+					<div style="top: 4px; left: 0; height: 100%; position: absolute;"><img src="pt_icon.jpg" style="height: 60%;"></div>
+					<div style="top: 5px; left: 17px; width: 100px; position: absolute; font-size: 12px;">Patient Education</div>
+				</div>
+
+			</div>
+			<div class="bannerbar">
+				<div class="bannerbar_top">
+					<div id="patient_tab" style="font-size: 11px; font-weight: 700; position: relative; border-radius: 5px 5px 0 0; top: 20%; left: 10px; height: 80%; width: 125px; background-color: rgb(42, 142, 203);">
+						<div>&nbsp; Smith, Bob Ral...</div>
+						<div style="position: absolute; left: 85%; height: 13px; top: 10%;"><img src="tab_close_icon.jpg" style="height: 100%;"></div>
+					</div>
+				</div>
+				<div class="bannerbar_body">
+					<div id="banner_col1" style="overflow: hidden; display: inline-block; position: relative; left: 1%; top: 3%; width: 18%; font-size: 12px; color: white;">
+						Name: Smith, Bob
+						<br>DOB: 02/18/1954
+						<br>Sex: Male
+					</div>
+					<div id="banner_col2" style="overflow: hidden; display: inline-block; position: relative; left: 3%; top: 3%; width: 18%; font-size: 12px; color: white;">
+						Address: 123 Some St. Prince...
+						<br>EMR: 83749247
+						<br>MRN: 02837582938
+					</div>
+					<div id="banner_col3" style="overflow: hidden; display: inline-block; position: relative; left: 3%; top: 3%; width: 18%; font-size: 12px; color: white;">
+						Weight: 75 kg
+						<br>Height: 1.8m
+						<br>Allergies: No known allergies
+					</div>
+					<div id="banner_col4" style="overflow: hidden; display: inline-block; position: relative; left: 3%; top: 3%; width: 20%; font-size: 12px; color: white;">
+						PCP: Urgent Care Physician
+						<br>Alerts: Falls Risk
+						<br>Precautions: Droplet
+					</div>
+					<div id="banner_col5" style="overflow: hidden; display: inline-block; position: relative; left: 3%; top: 3%; width: 18%; font-size: 12px; color: white;">
+						Location: UHNBC 4-B 22
+						<br>Date Admitted: 05-05-2023
+						<br>LOS: 5 Days
+					</div>
+
+				</div>
+			</div>
+			<div class="bodypanel">
+				<div class="sidepanel">
+					<div class="sidepaneloptsep" style="background-color: darkgray; margin-left: 0px; width: 100%;"></div>
+					<div class="sidepaneloption" style="background-color: rgb(52, 69, 85); margin-left: 0px; left: 0px: top: 0px; width: 100%;">
+						<div style="position: relative; left: 5px; top: 2%; height: 95%; z-index: 2;"><b>Menu</b></div>
+						<div style="position: absolute; left: 18%; top: 2px; height: 20px; z-index: 10;">
+							<img src="menu_tack.jpg" style="height: 100%;">
+						</div>
+					</div>
+					<div class="sidepaneloptsep" style="background-color: black; margin-left: 0px; width: 100%;"></div>
+					<div class="sidepaneloption">Provider View</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Results View</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Orders</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Documentation</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">&nbsp;</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Allergies</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Clinical Media</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Diagnoses and Problems</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">MAR</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">MAR Summary</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Medication List</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Form Browser</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Histories</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Interactive View and I&O</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Multi-Disciplinary Rounding</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Activities and Interventions</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Medication List</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption"></div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Outside Records</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">Patient Appointments</div>
+					<div class="sidepaneloptsep"></div>
+					<div class="sidepaneloption">eHealth Viewer</div>
+					<div class="sidepaneloptsep"></div>
+
+				</div>
+				
+				<div id="powerplan_box" class="powerplan_main">
+					<div style="width: 100%; background-image: url('top_bar_back.png'); height: 23px; text-align: left;">
+						&nbsp;&nbsp;<i class="fa fa-chevron-left" style="font-size:12px;color:white"></i>&nbsp;&nbsp;&nbsp;
+						<i class="fa fa-chevron-right" style="font-size:12px;color:white"></i>&nbsp;&nbsp;
+						<i class='fa fa-caret-down' style='font-size:10px;color:white'></i>
+						<div style="border-left: 1px solid #097969; border-right: 1 px solid white; height: 14px; top:3px; width: 0px; display: inline-block; position: relative; margin-left: 5px;"></div>
+					</div>
+								
+					<div id="powerplan_contents" class="powerplan_list">
+
+					<div style="display: block; position: relative; left: 0%; height: 25px; width: 80%; text-align: left;">
+					
+						<img src="order_toolbar.png" style="height: 20px;">
+					
+					</div>
+	
+						<div id="powerplan_contents2" class="powerplan_columns">
+							<div class="powerplan_single_col" style="width: 2%;">
+							
+							</div>
+							<div class="powerplan_single_col" style="width: 2%;">
+								<center>
+								<img src="pill_icon.png" style="width: 17px; top: 2px;">
+								</center>
+							</div>
+							<div class="powerplan_single_col" style="width: 6%;">
+							
+							</div>
+							<div class="powerplan_single_col" style="width: 2%;">
+								<center>
+									<img src="flag_icon.png" style="width: 17px; top: 2px;">
+								</center>
+							
+							</div>
+							<div class="powerplan_single_col" style="width: 2%;">
+							
+							</div>
+							<div class="powerplan_single_col" style="width: 25%;">
+								Component
+							</div>
+							<div class="powerplan_single_col" style="width: 6%;">
+								Status
+							</div>
+							<div class="powerplan_single_col" style="width: 8%;">
+								Order Com...
+							</div>
+							<div class="powerplan_single_col" style="width: 4%;">
+								Dose...
+							</div>
+							<div class="powerplan_single_col" style="width: 2%;">
+							
+							</div>
+							<div class="powerplan_single_col" style="width: 35%;">
+								Details
+							</div>
+
+						</div>
+						
+						<div id="order_data" style="width: 100%; height: 90%; overflow-y: scroll; overflow-x: hidden;">
+
+							<div class="powerplan_category">
+								<div style="float: left; margin-top: 2px;"><b>CARD STEMI PowerPlan</b></div>
+							</div>
+							
+							<div class="powerplan_category">
+								<div><img src="triangle.png" style="width: 15px; float: left;"></div>
+								<div style="float: left; margin-top: 2px;">Laboratory</div>
+							</div>
+						
+							<div class="powerplan_order">
+								<div class="order_checkbox"><input type="checkbox"></div>
+								<div class="order_icon_div">
+									<img src="order_icon.png" style="width: 16px;">
+								</div>
+								<div class="order_text">CBC</div>
+								<div style="">Stat T;N</div>
+							</div>
+
+							<div class="powerplan_order">
+								<div class="order_checkbox"><input type="checkbox"></div>
+								<div class="order_icon_div">
+									<img src="order_icon.png" style="width: 16px;">
+								</div>
+								<div class="order_text">CBC</div>
+								<div class="sentence_text">Stat T;N</div>
+							</div>
+
+							<div class="powerplan_note">
+								<div class="order_checkbox">&nbsp;</div>
+								<div class="order_icon_div">
+									<img src="note_icon.png" style="width: 16px;">
+								</div>
+								<div class="note_text">Make sure to order the appropriate bloodwork</div>
+								
+							</div>
+						
+						</div>
+					
+					</div>
+
+					<div class="signbox" style="text-align: right;">
+						<div style="margin-top: 5px; margin-left: 25px; text-align: left; width: 40%; float: left;">
+						<input class="win7-btn" type="button" value="Dx Table" />
+						</div>
+
+						<div style="margin-top: 5px; float: left; width: 30%;">
+						&nbsp;
+						</div>
+						
+						<div style="margin-top: 5px; right: 1%; float: right; width: 20%; text-align: right; display: inline-block;">
+						<input class="win7-btn" type="button" value="Sign" style="right: 10px; display: inline-block;"/>
+						</div>
+					</div>
+				
+				</div>
+				
+
+			</div>
+		</div>
+
+		<script>
+		
+			// display order data
+			GetDataParm();
+
+			// show doctor popup
+			ShowDoctorPopup();
+		
+		</script>
+	
+	
+	</body>
+
+</html>

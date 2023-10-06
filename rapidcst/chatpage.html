@@ -1,0 +1,572 @@
+
+<html>
+
+	<head>
+		<title>Order Set Build Online Forum</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+		<style>
+			.banner {
+				left: 0px;
+				width: 100%;
+				height: 60px;
+				background-color: steelblue;
+				color: white;
+				font-family: arial;
+				position: relative;
+				display: inline-block;
+				font-size: 36px;
+				padding-left: 10px;
+				padding-top: 10px;
+			}
+
+			.toolbar {
+				left: 0px;
+				width: 100%;
+				height: 30px;
+				background-color: #6495ED;
+				color: white;
+				font-family: arial;
+				position: relative;
+				display: inline-block;
+				font-size: 16px;
+				padding-left: 10px;
+				padding-top: 5px;
+			}
+
+			.breadcrumb {
+				width: calc(90% - 10px);
+				height: 27px;
+				top: 2%;
+				left: 5%;
+				background-color: #ADD8E6;
+				color: gray;
+				font-family: arial;
+				font-size: 16px;
+				padding-left: 10px;
+				border-radius: 5px;
+				position: relative;
+				display: inline-block;
+				padding-top: 3px;
+
+			}
+
+			.main_body {
+				width: 90%;
+				height: 70%;
+				left: 5%;
+				top: 3%;
+				border-radius: 5px;
+				border: 2px solid lightgray;
+				position: relative;
+				display: inline-block;
+				overflow-y: scroll;
+			}
+
+			.message_text {
+				width: 60%;
+				min-height: 10%;
+				left: 20%;
+				top: 3%;
+				padding-left: 5px;
+				padding-top: 5px;
+				padding-bottom: 10px;
+				border-radius: 5px;
+				border: 1px solid lightgray;
+				position: relative;
+				display: inline-block;
+				font-family: arial;
+				font-size: 12px;
+				color: black;
+				margin-bottom: 7px;
+			}
+
+			.add_message_button {
+				left: 40%;
+				width: 20%;
+				height: 25px;
+				border-radius: 7px;
+				color: white;
+				font-family: arial;
+				text-align: center;
+				font-size: 16px;
+				background-color: steelblue;
+				position: relative;
+				display: inline-block;
+				margin-top: 3px;
+				padding-top: 3px;
+				cursor: pointer;
+
+			}
+
+			.message_tag {
+				border-radius: 5px;
+				width: 50px;
+				height: 30px;
+				background-color: blue;
+				color: white;
+				font-family: arial;
+				font-size: 10px;
+				padding: 5px;
+				font-weight: 700;
+			}
+
+			.menu_option {
+				border-radius: 3px;
+				width: 50px;
+				height: 25x;
+				background-color: white;
+				color: blue;
+				font-family: arial;
+				font-size; 12px;
+				margin-right: 10px;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				padding-left: 5px;
+				padding-right: 5px;
+				cursor: pointer;
+			}
+
+			.task_tag {
+				border-radius: 5px;
+				width: 50px;
+				height: 30px;
+				background-color: green;
+				color: white;
+				font-family: arial;
+				font-size: 10px;
+				padding: 5px;
+				font-weight: 700;
+
+			}
+
+			.decision_tag {
+				border-radius: 5px;
+				width: 50px;
+				height: 30px;
+				background-color: red;
+				color: white;
+				font-family: arial;
+				font-size: 10px;
+				padding: 5px;
+				font-weight: 700;
+
+			}
+
+			.physician_tag {
+				border-radius: 5px;
+				width: 50px;
+				height: 30px;
+				background-color: purple;
+				color: white;
+				font-family: arial;
+				font-size: 10px;
+				padding: 5px;
+				font-weight: 700;
+
+			}
+			
+			.msg_line {
+				height: 0px;
+				width: 95%;
+				left: 2.5%;
+				border: 1px solid lightgray;
+				position: relative;
+				display: inline-block;
+				margin: 5px;
+
+			}
+			
+			.add_message {
+				left: 25%;
+				width: 50%;
+				top: 15%;
+				height: 70%;
+				border: 1px solid black;
+				border-radius: 5px;
+				background-color: white;
+				color: black;
+				display: none;
+				z-index: 10;
+				position: absolute;
+				font-family: arial;
+				
+			}
+
+			.dasboard_screen {
+				left: 15%;
+				width: 70%;
+				top: 15%;
+				height: 70%;
+				border: 1px solid black;
+				border-radius: 5px;
+				background-color: white;
+				color: black;
+				display: none;
+				z-index: 10;
+				position: absolute;
+				font-family: arial;
+				
+			}
+			
+			.inputfield {
+				width: 90%;
+				height: 20px;
+				font-size: 13px;
+				background: white;
+				border-radius: 3px;
+				overflow: hidden;
+			}
+			
+			.mainbutton {
+				left: 0%;
+				width: 100px;
+				height: 27px;
+				border-radius: 7px;
+				color: white;
+				font-family: arial;
+				text-align: center;
+				font-size: 16px;
+				background-color: steelblue;
+				position: relative;
+				display: inline-block;
+				margin-top: 3px;
+				padding-top: 3px;
+				cursor: pointer;
+			
+			}
+			
+			.message_title {
+				left: 3%;
+				width: 90%;
+				top: 3%;
+				position: relative;
+				display: inline-block;				
+			}
+			
+			.message_body {
+				left: 3%;
+				width: 90%;
+				top: 9%;
+				position: relative;
+				display: inline-block;
+						
+			}
+
+		</style>
+
+
+	</head>
+
+	<body style="margin: 0px; padding: 0px; overflow: hidden;">
+	
+	<div class="dasboard_screen" id="dashboard_window">
+
+		<center>
+		<h2>Statistics</h2>
+		<canvas id="myChart" style="width:80%;max-width:700px"></canvas>
+		</center>
+		<br>&nbsp;
+		<div id="add_button" class="add_message_button" style="right: 10%;" onclick="closeDashboardWindow();">Close</div>
+	
+	</div>
+
+	
+	<div class="add_message" id="add_message_window">
+	
+		<center>
+			<h2>Add a Message</h2>
+			<table style="width: 80%; left: 10%; font-family: arial;">
+				<tr>
+					<td style="text-align: right;">Title:</td>
+					<td><div id="order_title_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">From:</td>
+					<td><div id="msg_by_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">To:</td>
+					<td><div id="msg_to_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">Date:</td>
+					<td><div id="msg_date_field" class="inputfield" contenteditable="true" style="width: 300px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">Type:</td>
+					<td>
+					<select name="note_type" id="note_type">
+						<option value="message">Message</option>
+						<option value="task">Task</option>
+						<option value="decision">Decision</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">Message:</td>
+					<td><div id="message_field" class="inputfield" contenteditable="true" style="width: 300px; height: 150px; background-color: white; color: black; border: 1px solid black;"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;" colspan=2>
+						<center>
+						<div class="mainbutton" onclick="closeMessageWindow();">Cancel</div>
+						<div class="mainbutton" onclick="saveChatMessage();">Save</div>
+						</center>
+					</td>
+				</tr>
+			
+			</table>
+		</center>
+	
+	</div>
+	
+	<div id="main_banner" class="banner">Order Set Build</div>
+	<div id="main_toolbar" class="toolbar"><span class="menu_option">Tracker</span><span class="menu_option" onclick="alert('Coming Soon!');">Search</span><span class="menu_option" onclick="ShowDashboard();">Dashboard</span></div>
+	<div id="main_breadcrumb" class="breadcrumb">Current Forum: {%title%}</div>
+	<div id="main_breadcrumb" class="breadcrumb" style="padding-top: 0px; background-color: white;">
+		<div id="add_button" class="add_message_button" style="left: 20%;" onclick="ShowAddMessage();">Add Message</div>
+		<div id="add_button" class="add_message_button" style="left: 35%;" onclick="alert('Coming Soon!');">
+			Filter By:
+			<select name="note_type" id="note_type">
+				<option value="message">Message</option>
+				<option value="task">Task</option>
+				<option value="decision">Decision</option>
+				<option value="physician">Physician Feedback</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+	</div>
+
+	<div id="main_body_msgs" class="main_body">
+
+		<center>
+		<img src="working.gif" style="width: 25%;">
+		</center>
+		
+	</div>
+
+	<script>
+
+		var order_title = "{%title%}";
+		var tid = "{%id%}";
+		var mainjson = {};
+		
+		function closeMessageWindow() {
+			document.getElementById("add_message_window").style.display = "none";	
+
+		}
+
+		function closeDashboardWindow() {
+			document.getElementById("dashboard_window").style.display = "none";	
+
+		}
+		
+		function ShowGraph(tjson) {
+
+			// count up data
+			var tmessages = 0;
+			var ttasks = 0;
+			var tdecisions = 0;
+			var tdoctor = 0;
+			var tother = 0;
+			tjson["chat"].forEach(function(object) {
+				console.log("Object: " + JSON.stringify(object));
+				var ttype = object.type;
+				console.log("Type: " + ttype);
+				if (ttype == "message") {tmessages++;}
+				if (ttype == "task") {ttasks++;}
+				if (ttype == "decision") {tdecisions++;}
+				if (ttype == "physician") {tdoctor++;}
+				if (ttype == "other") {tother++;}
+				
+			});
+
+			var xValues = ["Messages", "Tasks", "Decisions", "Physician Feedback", "Other"];
+			var yValues = [tmessages, ttasks, tdecisions, tdoctor, tother];
+			console.log(yValues);
+			var barColors = ["blue", "green", "red", "purple", "orange"];
+
+			new Chart("myChart", {
+			  type: "bar",
+			  data: {
+				labels: xValues,
+				datasets: [{
+				  backgroundColor: barColors,
+				  data: yValues
+				}]
+			  },
+			  options: {
+				legend: {display: false},
+				title: {
+				  display: true,
+				  text: "Discussion Board Content"
+				}
+			  }
+			});
+		
+		}
+
+		var chatdata = {};
+		function ajaxGetChat(tid) {
+			//alert("ajaxGetChat");
+			var hr2 = new XMLHttpRequest();
+			hr2.open("GET", "chat.py?mode=show&id=" + tid, true);
+			//console.log("chat.py?mode=show&id=" + tid);
+			hr2.setRequestHeader("Content-type", "application/json", true);
+			hr2.onreadystatechange = function() {
+				if (hr2.readyState == 4 && hr2.status == 200) {
+					chatdata = JSON.parse(hr2.responseText);
+					mainjson = chatdata;
+					//console.log(hr2.responseText);
+					//alert(hr2.responseText);
+					ShowMessages(chatdata);
+				}
+			}
+			hr2.send(null);
+			
+		}
+		
+		function ShowDashboard(tid) {
+		
+			//alert("ajaxGetChat");
+			document.getElementById("dashboard_window").style.display = "block";
+			ShowGraph(mainjson);
+		
+		}
+		
+		function saveChatData(tmpjson, tid) {
+			var xhr = new XMLHttpRequest();
+			var url = "chat.py?mode=save&id=" + tid + "&data=" + encodeURIComponent(JSON.stringify(tmpjson));
+			xhr.open("GET", url, true);
+			xhr.setRequestHeader("Content-type", "application/json");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					//console.log("Saving conversation");
+					//ShowMessages(tid, chatdata);
+					mainjson = tmpjson;
+				}
+			}
+			xhr.send();
+			//document.location.reload(true);
+			console.log(url);
+		
+		}
+		
+		function showMsg(ttype, ttitle, tby, tto, tdate, tmessage) {
+
+			// create message DIV
+			var tclass = "message_tag";
+			var class_text = "Message";
+			if (ttype == "task") {
+				tclass = "task_tag";
+				class_text = "Task";
+			}
+			if (ttype == "decision") {
+				tclass = "decision_tag";
+				class_text = "Decision";
+			}
+
+			var tHTML = "";
+			tHTML += '<div id="tmsg" class="message_text">' + "\n";
+			tHTML += '	<div class="message_title">' + "\n";
+			tHTML += '		<span class="' + tclass + '">' + class_text + '</span> <span style="font-size: 14px;"><b>' + ttitle + "</b></span>\n";
+			tHTML += '	</div>' + "\n";
+			tHTML += '	<div class="msg_line"></div>' + "\n";
+			tHTML += '	<div class="message_body">' + "\n";
+			tHTML += "<i><div style='position: absolute; left: 0%; color: gray;'>Date: " + tdate + "</div><div style='position: absolute; left: 20%; color: gray;'>From: " + tby + "</div> " + " <div style='position: absolute; left: 40%; color: gray;'>To: " + tto + "</div></i>";		
+			tHTML += '<br><br><span style="font-size: 14px;">' + tmessage + "</span>\n";
+			tHTML += '	</div>' + "\n";
+			tHTML += '</div>' + "\n";
+			
+			return tHTML;
+				
+		}
+			
+		function updateMessages(tmpjson) {
+		
+			var tHTML = showMsg(tmpjson["type"], tmpjson["title"], tmpjson["by"], tmpjson["to"], tmpjson["date"], tmpjson["message"]);
+			
+			// append to main display panel
+			document.getElementById("main_body_msgs").innerHTML += tHTML;
+		
+		}
+		
+		function saveChatMessage() {
+			var tmpjson = {};
+			tmpjson["title"] = document.getElementById("order_title_field").innerText;
+			tmpjson["by"] = document.getElementById("msg_by_field").innerText;
+			tmpjson["to"] = document.getElementById("msg_to_field").innerText;		
+			tmpjson["date"] = document.getElementById("msg_date_field").innerText;
+			tmpjson["message"] = document.getElementById("message_field").innerText;
+			
+			// get the note type
+			var tnote_type = "NA";
+			var e2 = document.getElementById("note_type");
+			if (e2.selectedIndex > -1) {
+				tnote_type = e2.options[e2.selectedIndex].value;
+				var ttext = e2.options[e2.selectedIndex].text;
+			}
+			tmpjson["type"] = tnote_type;
+			
+			//console.log(JSON.stringify(tmpjson));
+			saveChatData(tmpjson, tid);
+			document.getElementById("add_message_window").style.display = "none";
+			
+			// update on the screen
+			updateMessages(tmpjson);
+			
+		}
+		
+		function ShowAddMessage() {
+			document.getElementById("add_message_window").style.display = "block";
+			const today = new Date();
+			const yyyy = today.getFullYear();
+			let mm = today.getMonth();
+			let dd = today.getDate();
+			if (dd < 10) dd = '0' + dd;
+			if (mm < 10) mm = '0' + mm;
+			const formattedToday = dd + '-' + mm + '-' + yyyy;
+			
+			document.getElementById("order_title_field").innerHTML = '';
+			document.getElementById("msg_by_field").innerHTML = '';
+			document.getElementById("msg_to_field").innerHTML = '';
+			document.getElementById("msg_date_field").innerHTML = '';
+			//document.getElementById("message_field").innerHTML = '';
+			
+			document.getElementById("msg_date_field").innerHTML = formattedToday;
+			
+		}
+
+		// load messages
+		function ShowMessages(tjson) {
+		
+			var tHTML = "";
+			tjson["chat"].forEach(function(object) {
+				//console.log("Object: " + JSON.stringify(object));
+				var ttitle = object.title;
+				var tby = object.by;
+				var tto = object.to;
+				var tdate = object.date;
+				var tmessage = object.message;
+				var ttype = object.type;
+
+				var titem = showMsg(ttype, ttitle, tby, tto, tdate, tmessage);
+				//console.log(titem);
+				tHTML += titem;
+			
+			});
+			
+			// append to main display panel
+			document.getElementById("main_body_msgs").innerHTML = tHTML;
+		
+		}
+
+		// call function
+		ajaxGetChat(tid);
+
+	</script>
+
+
+</body>
+
+</html>

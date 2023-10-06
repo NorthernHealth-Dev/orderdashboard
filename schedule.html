@@ -1,0 +1,332 @@
+
+<html>
+
+	<head>
+		<title>SaferCare Computerized Provider Order Entry</title>
+		<meta name="robots" content="noindex">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900%7COpen+Sans:300,400,500" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<style>
+		
+			.main_button {
+				position: absolute;
+				width: 300px;
+				height: 40px;
+				padding-top: 10px;
+				background-color: steelblue;
+				color: white;
+				font-family: arial;
+				font-size: 18px;
+				border-radius: 12px;
+				text-align: center;
+				cursor: pointer;
+			}
+		
+		</style>
+		
+		<script>
+
+			function OpenViewer(tid) {
+			
+				var turl = 'ehrviewer.html?mode=' + tid;
+				//location.href = turl;
+				window.open(turl);
+			
+			}		
+		
+		</script>
+		
+	</head>
+
+	<body style="padding: 0px; margin: 0px; overflow: hidden;">
+	
+		<div id="main_banner" style="left: 0px; top: 0px; width: 100%; height: 90px;">
+				
+			<div style="left: 3%; top: 10px; width: 20%; height: 90px; position: absolute;">
+				<a href="index.html"><img src="SaferCare.png" style="height: 60px;"></a>
+			</div>
+
+			<div style="left: 10px; top: 35px; z-index: 10; width: 70%; left: 21%; position: absolute; text-align: right; font-family: 'Montserrat'; font-size: 14px;">
+				 <a href="introduction.html">Introduction</a> &nbsp; | &nbsp; <a href="schedule.html">Schedule</a> &nbsp; | &nbsp; <a href="documents.html">Documents</a> &nbsp; | &nbsp; <a href="ordersetlist.html">Electronic Order Sets</a> &nbsp; | &nbsp; <a href="reimbursement.html">Reimbursement</a> &nbsp; | &nbsp; <a href="contact.html">Contact</a> &nbsp; | &nbsp; <a href="tracker.html"><i class="fa fa-cog" aria-hidden="true"></i></a>
+			</div>
+				
+		</div>
+		
+		<div style="background-color: rgb(240, 245, 249); width: 100%; top: 90px; height: calc(100% - 90px); font-family: 'Montserrat'; font-size: 24px;">
+		
+			<div style="left: 10%; width: 80%; top: 5%; position: relative;">
+			<center><h2 style="font-family: 'Montserrat';">Schedule</h2></center>
+		
+			<center>
+
+				<table border=1 style="width: 100%;">
+					<tr>
+						<td valign="top" style="width: 12%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 11, 2023</span>
+						</td>
+						<td valign="top" style="width: 15%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 12, 2023</span>
+						</td>
+						<td valign="top" style="width: 15%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 13, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br><a href="#" onclick="OpenViewer('asthma')">ED Asthma</a>
+							<br>ED Chest Pain
+							<br>ED Code Trauma
+							<br>ED Headache
+							<br>ED Seizure
+							<br>ED Sexual Assault
+							<br>ED Shortness of Breath Dyspnea
+							<br>ED Spine Management
+							</span>
+
+						</td>
+						<td valign="top" style="width: 15%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 14, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>ED Allergic Reaction
+							<br>ED Blood Body Fluid (BBFE)
+							<br>ED Cannabinoid Hyperemesis ...
+							<br>ED Opioid Overdose
+							<br>ED Pain Nausea Vomiting
+							<br>ED Procedural Sedation
+							<br>ED Vaginal Bleeding
+							<br>ED Abdominal Pain
+							</span>
+
+						</td>
+						<td valign="top" style="width: 15%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 15, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>ICU Admission
+							<br>LTC Admission
+							<br>MED Admission
+							<br>COVID-19 Baricitinib
+							<br>COVID-19 General Admission
+							<br>COVID-19 ICU Admission
+							<br>COVID-19 Remdesivir
+							</span>
+
+						</td>
+						<td valign="top" style="width: 15%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 16, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>COVID-19 Sotrovimab
+							<br>COVID-19 Tocilizumab
+							<br>DIET Enteral Nutrition ...
+							<br>ED Major Burn
+							<br>MH Psychiatric Admission
+							<br>PED Admission
+							<br>SURG General Admission
+							</span>
+
+
+						</td>
+						<td valign="top" style="width: 12%">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 17, 2023</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td valign="top">
+						
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 18, 2023</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 19, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>COVID-19 Nirmatrelvir-ritonavir (Paxlovid)
+							<br>CRIT ARDS Ventilation Protocol
+							<br>GERI MED Delirium
+							<br>MED Venous Thromboembolism (VTE) Treatment
+							<br>PAL COVID-19 End of Life (non-ICU)
+							<br>PAL Crisis Symptom Management Inpatient
+							<br>PAL Symptom Management
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 20, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>CARD Heart Failure Management
+							<br>CARD ST-Elevation Myocardial Infarction (STEMI) Admission
+							<br>CARD Non-ST Elevation Myocardial Infarction (STEMI) Admission Unstable Angina (UA)
+							<br>CARD ST-Elevation Myocardial Infarction (STEMI) Fibrinolytic Therapy
+							<br>CRIT Sepsis
+							<br>PED ED Code Trauma
+							<br>PED Sepsis 0 to 28 Days
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 21, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>COVID-19 Nirmatrelvir-ritonavir (Paxlovid)
+							<br>CRIT ARDS Ventilation Protocol
+							<br>GERI MED Delirium
+							<br>MED Venous Thromboembolism (VTE) Treatment
+							<br>PAL COVID-19 End of Life (non-ICU)
+							<br>PAL Crisis Symptom Management Inpatient
+							<br>PAL Symptom Management
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 22, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>CARD Heart Failure Management
+							<br>CARD ST-Elevation Myocardial Infarction (STEMI) Admission
+							<br>CARD Non-ST Elevation Myocardial Infarction (STEMI) Admission Unstable Angina (UA)
+							<br>CARD ST-Elevation Myocardial Infarction (STEMI) Fibrinolytic Therapy
+							<br>CRIT Sepsis
+							<br>PED ED Code Trauma
+							<br>PED Sepsis 0 to 28 Days
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 23, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>ID C. Difficile Infection
+							<br>ID Meningitis
+							<br>ID Pneumonia HAP (Nosocomial Hospital Acquired)
+							<br>MED Venous Thromboembolism (VTE) Prophylaxis
+							<br>PED ED Acetaminophen (Tylenol) Overdose NAC
+							<br>PED ED Asthma Acute Management
+							<br>PED Sepsis Age 29 Days and Greater
+							</span>
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 12px; font-weight: 700">June 24, 2023</span>
+
+						</td>
+					</tr>
+
+					<tr>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">June 25, 2023</span>
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">June 26, 2023</span>
+							
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>Blood Products Emergent STAT
+							<br>Blood Products Make Available and Transfuse
+							<br>MED Peripherally Inserted Central Catheter (PICC) Line Insertion
+							<br>MH Clozapine Initiation (Moderate) (Module)
+							<br>MH Clozapine Initiation (Slow) (Module)
+							<br>MH Clozapine Initiation Maintenance and Monitor
+							<br>OB Postpartum VTE Thromboprophylaxis
+							<br>ORTHO Fractured Hip Venous Thromboembolism (VTE) Prophylaxis
+							</span>
+
+							<br><span style="font-family: arial; font-size: 8px; color: green;">
+							<br><b>Order Sets to Review at UHNBC/On MS Teams:</b>
+							<br>TBA
+							</span>
+
+							
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">June 27, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>GI Helicobacter Pylori Eradication
+							<br>ID Aspiration Pneumonia (Module)
+							<br>ID Febrile Neutropenia
+							<br>ID Pneumonia CAP (Community Acquired)
+							<br>ID AMB IV Antimicrobial Therapy
+							<br>ID Cellulitis Skin and Soft Tissue Infection (SSTI)
+							<br>ID LTC Influenza (Oseltamivir)
+							<br>ID Pyelonephritis
+							</span>
+
+							<br><span style="font-family: arial; font-size: 8px; color: green;">
+							<br><b>Order Sets to Review at UHNBC/On MS Teams:</b>
+							<br>TBA
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">June 28, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>GI Alcoholic Hepatitis
+							<br>OB Antepartum Hemorrhage Admission and Management
+							<br>OB Bakri (Intrauterine) Balloon Monitoring
+							<br>OB Chorioamnionitis
+							<br>OB Intrauterine Fetal Death Investigation
+							<br>OB RhIG (RhoGAM) for Rh-Negative Patients
+							<br>PED SUS Nechako Centre Youth General Admission Orders
+							<br>SUS Adult Withdrawal Management Unit (AWMU) Assessment
+
+							</span>
+
+							<br><span style="font-family: arial; font-size: 8px; color: green;">
+							<br><b>Order Sets to Review at UHNBC/On MS Teams:</b>
+							<br>TBA
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">June 29, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>CRIT Continuous Renal Replacement Therapy
+							<br>SUS Acute Management of Opioid Withdrawal
+							<br>SUS Buprenorphine Naloxone (Suboxone) Induction
+							<br>SUS Nicotine Replacement
+							<br>CRIT Sedation and Analgesia for Mechanically Ventilated Patients
+							<br>ED Buprenorphine Naloxone (Suboxone)
+							<br>PED Bronchiolitis
+							<br>PED Febrile Neutropenia
+							</span>
+
+							<br><span style="font-family: arial; font-size: 8px; color: green;">
+							<br><b>Order Sets to Review at UHNBC/On MS Teams:</b>
+							<br>TBA
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">June 30, 2023</span>
+							<br><span style="font-family: arial; font-size: 8px; color: blue;">
+							<br><b>Order Sets Ready to Review:</b>
+							<br>TBA
+							</span>
+
+							<br><span style="font-family: arial; font-size: 8px; color: green;">
+							<br><b>Order Sets to Review at UHNBC/On MS Teams:</b>
+							<br>TBA
+							</span>
+
+						</td>
+						<td valign="top">
+							<span style="font-family: arial; font-size: 11px; font-weight: 700">&nbsp;</span>
+						</td>
+					</tr>
+
+				</table>
+
+			</center>
+			
+			</div>
+		
+		</div>
+
+
+	</body>
+	
+</html>

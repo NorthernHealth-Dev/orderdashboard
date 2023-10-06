@@ -1,0 +1,318 @@
+[
+  {
+    "type": "title",
+    "data": "OB Oxytocin Induction or Augmentation of Labour with Oxytocin (Module)"
+  },
+  {
+    "type": "category",
+    "data": "Admit/Transfer/Discharge"
+  },
+  {
+    "type": "note",
+    "data": "Refer to Society of Obstetricians and Gynaecologists of Canada (SOGC) Clinical Practice Guideline Induction of Labour",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Refer to Safe Handling of Oxytocin (found on OurNH → Medications → Process)",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Refer to 1-1-2-190 Induction and Augmentation of Labour: Oxytocin",
+    "value": ""
+  },
+  {
+    "type": "category",
+    "data": "Patient Care",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Complete Pre-Oxytocin Checklist",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Monitoring During Oxytocin Infusion",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Fetal Monitoring",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Continuous electronic fetal monitoring (EFM)",
+    "value": "checked"
+  },
+  {
+    "type": "note",
+    "data": "EFM may be interrupted for periods of up to 30 minutes in the first stage of labour (if tracing is normal, maternal-fetal condition is stable, and the infusion rate of oxytocin has not been increased in the last 30 minutes) to allow form ambulation, personal care and hydrotherapy",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Assess and document the fetal heart rate (FHR) and uterine assessment (UA):",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "q15 minutes during first stage of labour and before the onset of pushing in the second stage",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "q15 minutes during active second stage, once the pushing has begun",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "maternal heart rate, respirations, and blood pressure q30min and prn. Notify MRP if vitals outside normal limits",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "maternal temperature q4h if membranes intact, q2h once membranes have ruptured and prn. Notify MRP if temperature is greater than 38 degrees",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "monitor intake and output q4h and observe for signs of water intoxication/hyponatremia (lethargy, ataxia, confusion, seizures)",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "vaginal examination q2-4h or prn for labour progress in the first stage",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "vaginal examination q1h in the active second stage",
+    "value": ""
+  },
+  {
+    "type": "category",
+    "data": "Continuous Infusions"
+  },
+  {
+    "type": "note",
+    "data": "Primary IV initiated with mainenance infusion at 125ml/hr on IV smart pump (if indicated)",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Sodium Chloride 0.9% (NS)",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "125 ml/hr on IV smart pump",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Ringers Lactate",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "125 ml/hr on IV smart pump",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Diabetic protocol - Refer to 10-111-5252 Labour and Birth Gestational Diabetes Intrapartum Management",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "D5W",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "125 ml/hr on IV smart pump",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Piggyback oxytocin infusion onto primgary IV line connected at port closest to the patient",
+    "note": ""
+  },
+  {
+    "type": "note",
+    "data": "If uterine tachysystole (more than 5 contractions in 10 minutes averaged over 30 minutes) and / OR atypical or abnormal FHR in the presence of suspected maternal and/or fetal hypovolemia or rapid decrease in maternal blood pressure (e.g. after epidrual top up):",
+    "note": ""
+  },
+  {
+    "type": "order",
+    "data": "sodium chloride 0.9% (NS) bolus 500 ml once PRN, administer over 10 minutes",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "sodium chloride 0.9% (NS) bolus 250 ml once PRN, administer over 10 minutes",
+    "value": ""
+  },
+  {
+    "note": "note",
+    "data": "Do not order fluid bolus if contraindicated by maternal condution (e.g. significant underlying cardiovascular conditions).",
+    "value": ""
+  },
+  {
+    "type": "category",
+    "data": "Medications"
+  },
+  {
+    "type": "order",
+    "data": "oxytocin 30 units IV in NS 500 ml (0.06 units/mL) in NS",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "OR",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "oxytocin 30 units IV in D5NS 500 ml (0.06 units/mL) in NS - for diabetic patients",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Low dose oxytocin",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Use low dose oxytocin if:  - All augmentations in 2nd stage  - Parous augmentation  - Grand multiparous induction and augmentation  - Vaginal birth after cesarean augmentation and induction",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "titrate 1 milliunit/min (3 mL/hour) starting rate to 20 milliunit/min maximum rate. Titrate by 1 to 2 milliunits/min at 30 minute intervals until regular uterine activity is established",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "titrate 2 milliunit/min (6 mL/hour) starting rate to 20 milliunit/min maximum rate. Titrate by 1 to 2 milliunits/min at 30 minute intervals until regular uterine activity is established",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "High dose oxytocin (if indicated and in consultation with OBGYN - resources permitting)",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Use high dose oxytocin if:  - Parous induction - Nulliparous augmentation - nullipraous induction in the 1st stage",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "titrate 2 milliunit/min (6 mL/hour) starting rate to 20 milliunit/min maximum rate. Titrate by 2 to 4 milliunits/min at 30 minute intervals until regular uterine activity is established",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "titrate 4 milliunit/min (12 mL/hour) starting rate to 20 milliunit/min maximum rate. Titrate by 2 to 4 milliunits/min at 30 minute intervals until regular uterine activity is established",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Reassess Oxytocin",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Provider to reassess when oxytocin 20 milliunits/min is reached",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Oxytocin may not be started unless the oxytocin checklist is complete",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "if uterine activity has not returned to normal after 10 minutes, discontinue oxytocin until tachysystole resolves",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Reduce Oxytocin",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "In the event of atypical FHS, reduce the oxytocin infusion rate by half or stop oxytocin infusion",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "In the event of tachysystole with normal atypical fetal monitoring",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Decrease oxytocin to half the rate or stop oxytocin infusion",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Notify provider if oxytocin rate is decreased",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Stop Oxytocin",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "In the event of an abnormal FHS, stop oxytocin immediately",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "In the event of tachysystole with an abnormal FHS, stop oxytocin immediately",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Apply intrauterine resuscitation interventions defined in (see Intrapartum CPS)",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Notify provider if oxytocin is discontinued",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Restart Oxytocin",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Restart oxytocin at half the rate if it has been discontinued for less than 20 minutes, and the FHR tracing and contraction pattern are normal",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Restart oxytocin at initial starting dose if it has been discontinued for 30 min or longer, the FHR tracing and contraction pattern are normal, and a complete fetal and maternal assessment has been discussed with the MRP prior to restarting",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "For Tachysystole Management",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Nitroglycerin 50 micrograms IV every 90 seconds to 3 minutes PRN to a maximum dose of 200 micrograms over 15 min",
+    "value": ""
+  }
+]

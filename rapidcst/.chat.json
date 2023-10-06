@@ -1,0 +1,37 @@
+{
+  "chat": [
+    {
+      "from": "Andrew",
+      "title": "Hello",
+      "to": "Andrew",
+      "date": "2023-04-27",
+      "message": "This is a test message",
+      "type": "message",
+      "id": 1
+    },
+    {
+      "title": "This is a test",
+      "to": "Everyone",
+      "date": "09-05-2023",
+      "message": "Hello this is a test of the message script!<div><br></div><div>Let's go!</div>",
+      "type": "message",
+      "by": "Andrew"
+    },
+    {
+      "title": "This is another test",
+      "to": "Everyone",
+      "date": "09-05-2023",
+      "message": "Hello this is a test of the message script!<div><br></div><div>Let's go!</div>",
+      "type": "message",
+      "by": "Andrew"
+    },
+    {
+      "title": "Test",
+      "to": "Everyone",
+      "date": "14-05-2023",
+      "message": "Hello, this is a test",
+      "type": "physician",
+      "by": "This is a test"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+	  
+	.mainbox {
+		width: 50%;
+		left: 25%;
+		top: 10%;
+		height: 75%;
+		position: absolute;
+		display: block;
+		border: 1px solid black;
+		border-radius: 5px;
+		font-family: arial;
+		text-align: center;
+		padding: 10px;
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+		background-color: white;
+		overflow: hidden;
+	}
+	
+	.dogcircle {
+		width: 300px;
+		height: 300px;
+		border-radius: 150px;
+		left: calc(50% - 150px);
+		position: absolute;
+		bottom: 10%;
+		display: block;
+		border: 1px solid black;
+		overflow: hidden;
+		text-align: center;
+	
+	}
+	
+	.dogpic {
+		width: 350px; 
+		transform: translateY(-100px) translateX(-30px);
+	
+	}
+	
+	body {
+		background-color: #B0C4DE;
+	
+	}
+
+  </style>
+</head>
+
+<body>
+	<div class="mainbox">
+		  <h1>404: Page Not Found</h1>
+		  <p>Sorry, but the page you were trying to view does not exist.</p>
+		  <p>It is ok though. Just enjoy this picture of a cute pupper for a few minutes and then go back to <a href="https://www.clinicalinformatics.ca/orderdashboard">clinicalinformatics.ca/orderdashboard</a> and try again.</p>
+		  <div class="dogcircle">
+			<img src="404dog.jpeg" class="dogpic" alt="Picutre of cute pupper!" title="Honey Bear doesn't care if you don't find this page, she only cares that you find bones and scritches for her!">
+		  </div>
+	</div>
+</body> 
+
+</html>
+<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->

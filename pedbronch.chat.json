@@ -1,0 +1,1 @@
+{"chat": [{"from": "Andrew", "title": "Hello", "to": "Andrew", "location": "Prince George", "date": "04-27-2023", "message": "This is a test message", "type": "message", "id": 1}, {"title": "duplicate/mismatch", "to": "Everyone", "location": "UHNBC", "date": "31-06-2023", "message": "There are duplicate titles with different content", "type": "Pharmacist", "by": "Jennifer Day"}]}

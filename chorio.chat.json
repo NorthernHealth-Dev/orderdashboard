@@ -1,0 +1,21 @@
+{
+  "chat": [
+    {
+      "from": "Andrew",
+      "title": "Hello",
+      "to": "Andrew",
+      "date": "2023-04-27",
+      "message": "This is a test message",
+      "type": "message",
+      "id": 1
+    },
+    {
+      "title": "Carl Severson",
+      "to": "Everyone",
+      "date": "15-05-2023",
+      "message": "Bob Smith is a male patient, and PROM!!",
+      "type": "physician",
+      "by": ""
+    }
+  ]
+}

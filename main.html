@@ -1,0 +1,1170 @@
+<html>
+<head>
+	<title>SaferCare Order Set Temporary Build Tracker</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+	<style>
+	
+		#settingsbox {
+			left: 20%;
+			width: 60%;
+			top: 10%;
+			height: 80%;
+			position: absolute;
+			display: none;
+			background-color: rgba(255, 255, 255, 0.97);
+			border-radius: 5px;
+			border: 1px solid gray;
+			z-index: 10;
+			font-family: 'Roboto Condensed';
+		}
+
+		#settingsboxheader {
+		  padding: 10px;
+		  cursor: move;
+		  z-index: 10;
+		  background-color: #2196F3;
+		  color: #fff;
+		  width: 90%;
+		  border-radius: 10px;
+		}
+
+		#messagebox {
+			left: 20%;
+			width: 60%;
+			top: 10%;
+			height: 80%;
+			position: absolute;
+			display: none;
+			background-color: rgba(255, 255, 255, 0.97);
+			border-radius: 5px;
+			border: 2px solid gray;
+			z-index: 10;
+			font-family: 'Roboto Condensed';
+		}
+
+		#messageboxheader {
+		  padding: 10px;
+		  cursor: move;
+		  z-index: 10;
+		  background-color: #2196F3;
+		  color: #fff;
+		  width: 90%;
+		  border-radius: 10px;
+		}
+	
+		.bodystyle {
+			font-family: 'Roboto Condensed';
+		}
+		
+		.maintable {
+			font-family: 'Roboto Condensed';
+			font-size: 11px;
+			text-align: left;
+			background-color: rgba(0, 0, 255, 0.1);
+			width: 90%;
+			border: 0px solid white;
+		}
+		
+		tr:nth-child(even) {background: #F5FCFF}
+		tr:nth-child(odd) {background: #FFF}
+
+		/* width */
+		::-webkit-scrollbar {
+		  width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background: #f1f1f1; 
+		}
+		 
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: #888; 
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		  background: #555; 
+		}
+
+		/*
+		.settingsbox {
+			left: 20%;
+			width: 60%;
+			top: 10%;
+			height: 80%;
+			position: absolute;
+			display: none;
+			background-color: rgba(255, 255, 255, 0.97);
+			border-radius: 5px;
+			border: 1px solid gray;
+			z-index: 10;
+			font-family: 'Roboto Condensed';
+		}
+		*/
+		
+		.toprow {
+			background-color: rgba(0, 0, 255, 0.4);
+		}
+		
+		.index_col {
+			width: 0.5%;
+			text-align: center;
+		}
+		
+		.order_title {
+			width: 20%;
+		}
+		
+		.othercol {
+			width: 4%;
+			text-align: center;
+		}
+		
+		.toolcol {
+			width: 2.5%;
+			text-align: center;
+		}
+
+		.flagcol {
+			width: 1%;
+			text-align: center;
+		}
+		
+		.filecol {
+			width: 2%;
+			text-align: center;
+		}
+		
+		.ganttcol {
+			width: 40%;
+		}
+		
+		.cell_format {
+			text-align: center;
+		}
+		
+		.gantt_timeline {
+			left: 0px;
+			width: 99%;
+			border: 1px solid blue;
+			height: 20px;
+			display:block;
+			border-radius: 4px;
+			overflow: hidden;
+		}
+		
+		.gantt_phase1 {
+			left: 0%;
+			top: 0px;
+			float: left;
+			position: relative;
+			background-color: darkblue;
+			border-radius: 3px;
+			height: 17px;
+			width: 100px;
+			color: white;
+			text-align: center;
+			padding-top: 3px;
+		}
+
+		.gantt_phase2 {
+			left: 100px;
+			top: 0px;
+			float: left;
+			background-color: steelblue;
+			border-radius: 3px;
+			height: 17px;
+			width: 100px;
+			color: white;
+			text-align: center;
+			padding-top: 3px;
+		}
+
+		.gantt_phase3 {
+			left: 200px;
+			top: 0px;
+			float: left;
+			background-color: lightblue;
+			border-radius: 3px;
+			height: 17px;
+			width: 120px;
+			text-align: center;
+			padding-top: 3px;
+		}
+
+		.gantt_phase4 {
+			left: 320px;
+			top: 0px;
+			float: left;
+			background-color: skyblue;
+			border-radius: 3px;
+			height: 17px;
+			width: 80px;
+			text-align: center;
+			padding-top: 3px;
+		}
+		
+		.titlecol {
+			text-align: right;
+			width: 25%;
+		}
+		
+		.inputfield {
+			width: 90%;
+			height: 20px;
+			font-size: 13px;
+			background: #DBF3FA;
+			border-radius: 3px;
+			overflow: hidden;
+		}
+		
+		.mainbutton {
+			position: absolute;
+			font-size: 12px;
+			text-align: center;
+			font-family: 'Roboto Condensed';
+			background-color: lightblue;
+			border-radius: 3px;
+			width: 100px;
+			height: 20px;
+			padding-top: 5px;
+			cursor: pointer;
+		}
+		
+		.msgbox {
+			background-color: #B6D0E2;
+			border-radius: 5px;
+			width: 97%;
+			left: 0.5%;
+			position: relative;
+			padding: 5px;
+			margin-bottom: 5px;
+			font-size: 13px;
+			color: navy;
+		}
+		
+		.tabletitle {
+			transform: rotate(90deg);
+			font-family: 'Roboto Condensed';
+			font-size: 9px;
+			background-color: white;
+		}
+		
+		.maintoolbar {
+			width: 90%;
+			/* border: 1px solid steelblue; */
+			border-radius: 5px;
+			height: 50px;
+			font-family: 'Roboto Condensed';
+			text-align: left;
+			overflow: hidden;
+			top: 20px;
+		}
+		
+		.toolbutton {
+			border: 1px solid steelblue;
+			background-color: steelblue;
+			border-radius: 3px;
+			height: 20px;
+			width: 60px;
+			font-family: 'Roboto Condensed';
+			color: white;
+			text-align: center;
+			top: 10px;
+			float: right;
+			font-size: 12px;
+			padding-top: 5px;
+			margin-top: 10px;
+			margin-right: 5px;
+			cursor: pointer;
+		}
+		
+		.green_flag {
+			width: 10px;
+			height: 10px;
+			background-color: green;
+			border-radius: 10px;
+			color: white;
+		}
+
+		.yellow_flag {
+			width: 10px;
+			height: 10px;
+			background-color: yellow;
+			border-radius: 10px;
+			color: white;
+		}
+
+		.red_flag {
+			width: 10px;
+			height: 10px;
+			background-color: red;
+			border-radius: 10px;
+			color: white;
+		}
+		
+		.location_label {
+			background-color: orange;
+			color: white;
+			border-radius: 5px;
+			border: 2px solid white;
+			font-size: 16px;
+			cursor: pointer;
+		}
+	
+	
+	</style>
+	
+</head>
+
+<body style="background-color: #DCE3E6" onload="CheckSessionID();">
+
+<div id="messagebox">
+
+	<div style="font-size: 20px; left: 5%; top: 5%; position: relative;" id="messageboxheader">
+	Messages and Tasks
+	</div>
+
+	<div style="position: relative; top: 5%; left: 5%; width: 90%; height: 87%;">
+		<table style="width: 100%; height: 100%;">
+
+			<tr><td width="35%" valign="top">
+
+				<div style="left: 0%; top: 0%; height: 100%; width: 100%; position: relative; corner-radius: 1px solid black;">
+					<center>Add a Message:<br><br></center>
+					<table style="font-size: 12px;">
+						<!--
+						<tr><td class="titlecol" style="width: 25%;">ID:</td><td><div id="msg_id_field" class="inputfield" style="width: 300px"></div></td></tr>
+						-->
+						<tr><td class="titlecol" style="width: 25%;">Title:</td><td><div id="order_title_field" class="inputfield" style="width: 300px; background-color: steelblue; color: white;"></div></td></tr>
+						<tr><td class="titlecol" style="width: 25%;">By:</td><td><div id="msg_by_field" class="inputfield" style="width: 300px; background-color: steelblue; color: white;"></div></td></tr>
+						<tr><td class="titlecol" style="width: 25%;">To:</td><td>
+							<select name="userselect" id="userselect">
+							</select>
+						</td></tr>
+						<tr><td class="titlecol" style="width: 25%;">Date:</td><td><div id="msg_date_field" class="inputfield" style="width: 300px; background-color: steelblue; color: white;"></div></td></tr>
+						<tr><td class="titlecol" style="width: 25%;">Type:</td><td>
+						<select name="note_type" id="note_type">
+							<option value="message">Message</option>
+							<option value="task">Task</option>
+							<option value="decision">Decision</option>
+						</select>
+						</td></tr>
+						<tr><td class="titlecol" style="width: 25%;">Message:</td><td><div id="message_field" contenteditable="true" class="inputfield" style="width: 300px; height: 150px;"></div></td></tr>
+						<tr><td class="titlecol" style="width: 25%;"></td><td><div class="mainbutton" style="right: 3%;" onclick="saveChatMessage()">Save</div></td></tr>
+
+					</table>
+				</div>
+			
+			</td><td width="65%" valign="top">
+		
+				<div id="message_box" style="overflow-y: auto; left: 0%; top: 0%; height: 85%; width: 100%; position: relative; border: 1px solid lightgrey; border-radius: 5px;">
+					Messages
+				</div>
+
+				<div class="mainbutton" style="right: 3%; bottom: 4%;" onclick="CloseMessageWindows()">Close</div>
+				
+			</td></tr>
+			
+		</table>
+	</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div id="settingsbox">
+
+<div style="font-size: 20px; left: 5%; top: 5%; position: relative;" id="settingsboxheader">
+Settings Box
+</div>
+
+<div style="font-size: 12px; left: 5%; top: 8%; width: 90%; height: 75%; position: relative; overflow-y: scroll;" id="settings_body">
+	<table style="font-size: 12px; border: 1px solid black; width: 100%;">
+		<tr><td class="titlecol">Unique ID:</td><td><div id="unique_id_field" contenteditable="false" class="inputfield" style="background-color: lightgray;"></div></td></tr>
+		<tr><td class="titlecol">Bundle ID:</td><td><div id="bundle_id_field" contenteditable="true" class="inputfield"></div></td></tr>
+		<tr><td class="titlecol">Order Set Title:</td><td><div id="order_set_field" contenteditable="true" class="inputfield"></div></td></tr>
+		<tr><td class="titlecol">Version:</td><td><div id="version_field" contenteditable="true" class="inputfield"></div></td></tr>
+		<tr><td class="titlecol">CORx Owner:</td><td>
+		<select name="corx_list" id="corx_list"></select>
+		<!-- <div id="corx_field" contenteditable="true" class="inputfield"></div> -->
+		
+		</td></tr>
+		<tr><td class="titlecol">HLS Owner:</td><td>
+		<select name="hls_list" id="hls_list"></select>
+
+		<!-- <div id="hls_field" contenteditable="true" class="inputfield"></div> -->
+		
+		</td></tr>
+		<tr><td class="titlecol">Working Group:</td><td><div id="working_group_field" contenteditable="true" class="inputfield"></div></td></tr>
+		<tr><td class="titlecol">Service Network Contact:</td><td><div id="service_network_field" contenteditable="true" class="inputfield"></div></td></tr>
+		<tr><td class="titlecol">Updated:</td><td><input type="date" value="2017-06-01" id="updated_field"/></td></tr>
+		<tr><td class="titlecol">CST DCW Link:</td><td><div id="cst_dcw_field" contenteditable="true" class="inputfield" style="font-size: 9px; width: 350px;"></div></td></tr>
+		<tr><td class="titlecol">NH Order Set (PDF) Link:</td><td><div id="nh_orderset_field" contenteditable="true" class="inputfield" style="font-size: 9px; width: 350px;"></div></td></tr>
+		<tr><td class="titlecol">Word File Link:</td><td><div id="word_field" contenteditable="true" class="inputfield" style="font-size: 9px; width: 350px;"></div></td></tr>
+		<tr><td class="titlecol">NH DCW:</td><td><div id="nh_dcw_field" contenteditable="true" class="inputfield" style="font-size: 9px; width: 350px;"></div></td></tr>
+		<tr><td class="titlecol">Zynx:</td><td><div id="zynx_field" contenteditable="true" class="inputfield" style="font-size: 9px; width: 350px;"></div></td></tr>
+		<!-- <tr><td class="titlecol">Build Status:</td><td><div id="build_status_field" contenteditable="true" class="inputfield"></div></td></tr> -->
+		<tr><td class="titlecol">Build Status:</td><td>
+			<span id="pdflocation" onclick="changeCurrentLocation('PDF');" class="location_label">&nbsp;PDF&nbsp;</span>
+			<span id="wordlocation" onclick="changeCurrentLocation('Word');" class="location_label" style="background-color: green;">&nbsp;Word&nbsp;</span>
+			<span id="dcwlocation" onclick="changeCurrentLocation('DCW');" class="location_label" style="background-color: purple;">&nbsp;DCW&nbsp;</span>
+			<span id="pchartlocation" onclick="changeCurrentLocation('PChart');" class="location_label" style="background-color: blue;">&nbsp;PChart&nbsp;</span>
+			<span id="dcwlocation" onclick="changeCurrentLocation('Zynx');" class="location_label" style="background-color: steelblue;">&nbsp;Zynx&nbsp;</span>
+			<!-- <span style="background-color: orange; color: white; border-radius: 3px;">&nbsp;Zynx&nbsp;</span> -->
+		</td></tr>
+		<tr><td class="titlecol">Flag:</td><td>
+			<div class="green_flag" id="greenflag" onclick="changeCurrentFlag('green');" style="float: left; cursor: pointer; width: 20px; height: 20px; border-radius: 20px;">&nbsp;</div>&nbsp;
+			<div class="yellow_flag" id="yellowflag" onclick="changeCurrentFlag('yellow');" style="float: left; cursor: pointer; width: 20px; height: 20px; border-radius: 20px;">&nbsp;</div>&nbsp;
+			<div class="red_flag" id="redflag" onclick="changeCurrentFlag('red');" style="float: left; cursor: pointer; width: 20px; height: 20px; border-radius: 20px;">&nbsp;</div>
+		</td></tr>
+		<tr><td class="titlecol">Version 0.1 Dates:</td><td>Start: <input id="v1_start" type="date" value="2017-06-01" />&nbsp;&nbsp;End: <input type="date" value="2017-06-01" id="v1_end"/></td></tr>
+		<tr><td class="titlecol">Version 0.2 Dates:</td><td>Start: <input id="v2_start" type="date" value="2017-06-01" />&nbsp;&nbsp;End: <input type="date" value="2017-06-01" id="v2_end"/></td></tr>
+		<tr><td class="titlecol">Version 0.3 Dates:</td><td>Start: <input id="v3_start" type="date" value="2017-06-01" />&nbsp;&nbsp;End: <input type="date" value="2017-06-01" id="v3_end"/></td></tr>
+	</table>
+</div>
+
+<div class="mainbutton" style="right: 15%; bottom: 3%;" onclick="SaveMainData()">Save</div>
+
+<div class="mainbutton" style="right: 3%; bottom: 3%;" onclick="CloseSettingsWindows()">Close</div>
+
+</div>
+
+<center>
+<div style="left: 4%; top: 4%; width: 92%; height: 92%; position: absolute; border-radius: 5px; border: 1px solid black; overflow-y: auto; background-color: white; box-shadow: 0px 0px 15px 0px rgba(100,100,100,1);">
+<div class="maintoolbar">
+	<img src="logo_small.png" style="height: 40px; top: 5px; position: relative;">
+	<div style="position: absolute; display: inline; float: left; font-family: 'Roboto Condensed'; font-size: 20px; left: 9%; top: 10px;">SaferCare Order Set Temporary Build Tracker</div>
+	<div class="toolbuttons" style="float: right; overflow: hidden; right: 20px; height: 100%; width: 60%;">
+		<div class="toolbutton" onclick="ClickLogoutButton();">Logout</div>
+		<div class="toolbutton">Dashboard</div>
+		<div class="toolbutton">Delete</div>
+		<div class="toolbutton">+ Add</div>
+		<div class="toolbutton">Convert</div>
+		<div class="toolbutton">Settings</div>
+		<div class="toolbutton">My Tasks</div>
+		<div class="toolbutton">Messages</div>
+	</div>	
+</div>
+<!-- <div class="mainbutton" style="right: 4%; top: 5%;" onclick="SaveMainData()">Save</div> -->
+<table id="order_table" class="maintable">
+
+</table>
+</div>
+
+</center>
+
+<script>
+
+	// https://www.w3.org/Style/Examples/007/evenodd.en.html
+
+	var data;
+	var sessionid = "[sessionid]";
+	var username = "[name]";
+	var current_flag = "green";
+	var current_location = "DCW";
+	var chatid = "";
+	var current_corx = "";
+	var current_hls = "";
+
+	function ToolbarFunctions(tmode) {
+		if (tmode == "dashboard") {
+			alert("Dashboard coming soon!");
+		}
+	
+	}
+	
+	function DebugList(tselect) {
+		alert(document.getElementById(tselect).value);
+	
+	}
+	
+	function ChangeOrderDetails() {
+		document.getElementById('updated_field').value = GetCurrentDate();
+	
+	}
+	
+	function GetCurrentDate() {
+
+		/*
+		const date = new Date();
+		let day = date.getDate();
+		let month = date.getMonth() + 1;
+		let year = date.getFullYear();
+		let currentDate = `${year}-${month}-${day}`;
+		*/
+		//let currentDate = `${month}-${day}-${year}`;
+		
+		var currentDate = new Date().toISOString().substr(0, 10);
+		
+		return currentDate;
+	
+	}
+
+	function getUserList(tdiv, tval) {
+		console.log("Running getUserList");
+		var user_data = {};
+		var hr = new XMLHttpRequest();
+		hr.open("GET", "main.py?mode=userlist", true);
+		hr.setRequestHeader("Content-type", "application/json", true);
+		hr.onreadystatechange = function() {
+			if (hr.readyState == 4 && hr.status == 200) {
+				user_data = JSON.parse(hr.responseText);
+				ShowUserList(user_data, tdiv, tval);
+				console.log(hr.responseText);
+			}
+		}
+		hr.send(null);
+	}
+
+	function ShowUserList(user_data, tdiv, tval) {
+	
+		// clear list
+		document.getElementById(tdiv).length = 0;
+	
+		for (var key in user_data["users"]) {
+			if (user_data["users"].hasOwnProperty(key)) {
+				//console.log(user_data["users"][key].name);
+				var tname = user_data["users"][key].name;
+				var opt = document.createElement("option");        
+				opt.text = tname;
+				opt.value = tname;
+				//document.getElementById('userselect').options.add(opt);
+				document.getElementById(tdiv).options.add(opt);
+			}
+		}
+
+		//if (tname == tval) {
+		document.getElementById(tdiv).value = tval;
+		//}
+
+	
+	}
+
+	function ajaxGetJson() {
+		console.log("Running ajaxGetJson");
+		data = {};
+		//console.log("Current data");
+		//console.log(data);
+		var hr = new XMLHttpRequest();
+		//hr.open("GET", "order.json", true);
+		hr.open("GET", "main.py?mode=showdata", true);
+		hr.setRequestHeader("Content-type", "application/json", true);
+		hr.onreadystatechange = function() {
+			if (hr.readyState == 4 && hr.status == 200) {
+				data = JSON.parse(hr.responseText);
+				formatToTable(data["ordersets"]);
+			}
+		}
+		hr.send(null);
+	}
+	
+	function CheckSessionID() {
+		console.log("Running CheckSessionID");
+		var sessiondata = {};
+		//console.log("Current data");
+		//console.log(data);
+		var hr = new XMLHttpRequest();
+		var sessionval = "na";
+		//hr.open("GET", "order.json", true);
+		hr.open("GET", "main.py?mode=checksession&sessionid=" + sessionid, true);
+		hr.setRequestHeader("Content-type", "application/json", true);
+		hr.onreadystatechange = function() {
+			if (hr.readyState == 4 && hr.status == 200) {
+				sessiondata = JSON.parse(hr.responseText);
+				sessionval = sessiondata["sessionid"];
+				if (sessionval == "na") {
+					location.href = "main.py?mode=logout&sessionid=" + sessionid;
+					//console.log(data["sessionid"]);
+				}
+			}
+		}
+		hr.send(null);	
+	}
+	
+	function ClickLogoutButton() {
+		location.href = "main.py?mode=logout&sessionid=" + sessionid;
+	}
+	
+	function changeCurrentFlag(divid) {
+		current_flag = divid;
+		var current_div = divid + "flag";
+
+		document.getElementById("greenflag").style.border = "2px solid white";
+		document.getElementById("yellowflag").style.border = "2px solid white";
+		document.getElementById("redflag").style.border = "2px solid white";
+
+		var telement = document.getElementById(current_div);		
+		telement.style.border = "2px solid black";
+		
+		//console.log("Current flag: " + current_flag);
+		//console.log("Current div: " + current_div);
+		
+		//ChangeOrderDetails();
+
+	}
+	
+	function changeCurrentLocation(divid) {
+		current_location = divid;
+		var current_div = divid.toLowerCase() + "location";
+
+		document.getElementById("pdflocation").style.border = "2px solid white";
+		document.getElementById("wordlocation").style.border = "2px solid white";
+		document.getElementById("dcwlocation").style.border = "2px solid white";
+		document.getElementById("pchartlocation").style.border = "2px solid white";
+
+		var telement = document.getElementById(current_div);		
+		telement.style.border = "2px solid black";
+		
+		//console.log("Current flag: " + current_location);
+		//console.log("Current div: " + current_div);
+		
+		//ChangeOrderDetails();
+		
+	}
+	
+	function ajaxGetChat(tid) {
+
+		chatdata = {};
+		var hr2 = new XMLHttpRequest();
+		//hr.open("GET", "order.json", true);
+		hr2.open("GET", "main.py?mode=showchat&id=" + tid, true);
+		hr2.setRequestHeader("Content-type", "application/json", true);
+		hr2.onreadystatechange = function() {
+			if (hr2.readyState == 4 && hr2.status == 200) {
+				chatdata = JSON.parse(hr2.responseText);
+				ShowMessageWindow(tid, chatdata);
+			}
+		}
+		hr2.send(null);
+		
+	}
+	
+	function saveJsonData(tmpjson) {
+
+		var xhr = new XMLHttpRequest();
+		var url = "main.py?mode=savedata&data=" + encodeURIComponent(JSON.stringify(tmpjson));
+		xhr.open("GET", url, true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.st1atus == 200) {
+				// close the div
+				console.log("Closing window");
+			}
+		}		
+		xhr.send();
+		document.location.reload(true);
+
+		//console.log(url);
+
+	}
+
+	function saveChatData(tmpjson) {
+
+		console.log("tmpjson id: " + chatid);
+		var xhr = new XMLHttpRequest();
+		var url = "main.py?mode=savechat&id=" + chatid + "&data=" + encodeURIComponent(JSON.stringify(tmpjson));
+		xhr.open("GET", url, true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.st1atus == 200) {
+				// close the div
+				console.log("Closing window");
+			}
+		}		
+		xhr.send();
+		//document.location.reload(true);
+
+		console.log(url);
+
+	}
+		
+	function GetDateDiff(sdate1, sdate2) {
+		const date1 = new Date('7/13/2010');
+		const date2 = new Date('12/15/2010');
+		//const diffTime = Math.abs(date2 - date1);
+		const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+		//console.log(diffTime + " milliseconds");
+		console.log(diffDays + " days");
+	}
+	
+	function saveChatMessage() {
+		var tmpjson = {};
+		
+		// msg_id_field
+		// order_title_field
+		// msg_by_field
+		// msg_to_field
+		// note_radio
+		// task_radio
+		// message_field
+		// {"chat": [{"type": "message", "id": 1, "from": "Andrew", "to": "everyone", "message": "this is a test message"}]}
+		// {"type": "message", "id": 1, "from": "Andrew", "to": "everyone", "message": "this is a test message", "date": "2023-4-27"}
+		//tmpjson["id"] = document.getElementById("msg_id_field").innerHTML;
+		tmpjson["title"] = document.getElementById("order_title_field").innerHTML;
+		tmpjson["by"] = document.getElementById("msg_by_field").innerHTML;
+		tmpjson["date"] = document.getElementById("msg_date_field").innerHTML;
+		tmpjson["message"] = document.getElementById("message_field").innerHTML;
+		
+		// get type
+		var tnote_type = "NA";
+		var e = document.getElementById("note_type");
+		if (e.selectedIndex > -1) {
+			tnote_type = e.options[e.selectedIndex].value;
+			var ttext = e.options[e.selectedIndex].text;
+		}
+		tmpjson["type"] = tnote_type;
+		
+		// get "to"
+		var tnote_type2 = "NA";
+		var e2 = document.getElementById("userselect");
+		if (e2.selectedIndex > -1) {
+			tnote_type2 = e2.options[e2.selectedIndex].value;
+			var ttext2 = e2.options[e2.selectedIndex].text;
+		}
+		tmpjson["to"] = tnote_type2;
+				
+		//console.log("Debug 1");
+		//console.log(JSON.stringify(tmpjson));
+		if ((tmpjson["by"] != '') && (tmpjson["to"] != '') && (tmpjson["message"] != '')) {
+		
+			// display in box
+			var tHTML = showMsg(tmpjson["id"], tmpjson["title"], tmpjson["type"], tmpjson["by"], tmpjson["to"], tmpjson["date"], tmpjson["message"]);
+			document.getElementById("message_box").innerHTML += tHTML;
+			
+			// clear fields
+			//let today = new Date().toISOString().slice(0, 10)
+			//document.getElementById("msg_by_field").innerHTML = '';
+			document.getElementById("message_field").innerHTML = '';
+			//document.getElementById("msg_date_field").innerHTML = today;
+			
+		}
+		
+		// save message
+		saveChatData(tmpjson);
+		
+	}
+	
+	function showMsg(tid, ttitle, ttype, tby, tto, tdate, tmessage) {
+
+		var tHTML = '<div class="msgbox">'
+		tHTML += '<b><u>' + ttitle + '</u></b><br><b>Type:</b> ' + ttype + '&nbsp;&nbsp;<b>By:</b> ' + tby + '<br><b>To:</b> ' + tto + '&nbsp;&nbsp;<b>Date:</b> ' + tdate + '<br><div style="width: 97%; border: 1px solid steelblue;"></div><i>' + tmessage + '</i><br>&nbsp;'
+		tHTML += '</div>';
+
+		return tHTML;
+	
+	}
+	
+	function SaveMainData() {
+	
+		// update date
+		ChangeOrderDetails();
+	
+		// read data from fields
+		var tmpjson = {};
+		tmpjson["id"] = document.getElementById("unique_id_field").innerHTML;
+		tmpjson["bundle"] = document.getElementById("bundle_id_field").innerHTML;
+		tmpjson["order_set"] = document.getElementById("order_set_field").innerHTML;
+		tmpjson["version"] = document.getElementById("version_field").innerHTML;
+		//tmpjson["dcw_owner"] = document.getElementById("corx_field").innerHTML;
+		//tmpjson["hls_owner"] = document.getElementById("hls_field").innerHTML;
+		tmpjson["working_group"] = document.getElementById("working_group_field").innerHTML;
+		tmpjson["service_network"] = document.getElementById("service_network_field").innerHTML;
+		tmpjson["updated"] = document.getElementById("updated_field").value;
+		tmpjson["cst_dcw"] = document.getElementById("cst_dcw_field").innerHTML;
+		tmpjson["nh_order"] = document.getElementById("nh_orderset_field").innerHTML;
+		tmpjson["word_file"] = document.getElementById("word_field").innerHTML;
+		tmpjson["zynx_link"] = document.getElementById("zynx_field").innerHTML;
+		tmpjson["current_dcw"] = document.getElementById("nh_dcw_field").innerHTML;
+		
+		// 	var current_flag = "green";
+		//	var current_location = "DCW";
+		
+		// get type
+		var tnote_type = "NA";
+		var e = document.getElementById("corx_list");
+		if (e.selectedIndex > -1) {
+			tnote_type = e.options[e.selectedIndex].value;
+			var ttext = e.options[e.selectedIndex].text;
+		}
+		tmpjson["dcw_owner"] = tnote_type;
+
+		var tnote_type2 = "NA";
+		var e2 = document.getElementById("hls_list");
+		if (e2.selectedIndex > -1) {
+			tnote_type2 = e2.options[e2.selectedIndex].value;
+			var ttext2 = e2.options[e2.selectedIndex].text;
+		}
+		tmpjson["hls_owner"] = tnote_type2;
+		
+		// set flag
+		tmpjson["flag"] = current_flag;
+		
+		// set location
+		tmpjson["build_status"] = current_location;
+		
+		// set dates
+		tmpjson["version1_start"] = document.getElementById("v1_start").value;
+		tmpjson["version1_end"] = document.getElementById("v1_end").value;
+		tmpjson["version2_start"] = document.getElementById("v2_start").value;
+		tmpjson["version2_end"] = document.getElementById("v2_end").value;
+		tmpjson["version3_start"] = document.getElementById("v3_start").value;
+		tmpjson["version3_end"] = document.getElementById("v3_end").value;
+				
+		// Send to server
+		saveJsonData(tmpjson);
+
+		CloseSettingsWindows();
+		//window.location.reload(true);
+		formatToTable(data["ordersets"]);
+		
+	}
+	
+	function ShowMessageWindow(tid, tjson) {
+	
+		// show data
+		var x = document.getElementById("messagebox");
+		x.style.display = "block";
+		var tHTML = "";
+		
+		getUserList('userselect', 'none');
+		
+		// find data
+		// {"chat": [{"type": "message", "id": 1, "from": "Andrew", "to": "everyone", "message": "this is a test message"}]}
+		// {"type": "message", "id": 1, "from": "Andrew", "to": "everyone", "message": "this is a test message", "date": "2023-4-27"}
+		tjson["chat"].forEach(function(object) {
+			//var tid = object.id;
+			var ttitle = GetOrderTitle(tid);
+			chatid = tid;
+			//var tid = object.id;
+			var ttype = object.type;
+			var tfrom = object.from;
+			var tto = object.to;
+			var tmsg = object.message;
+			var tdate = object.date;
+			document.getElementById("msg_by_field").innerHTML = username;
+			document.getElementById("order_title_field").innerHTML = ttitle;
+			document.getElementById("msg_date_field").innerHTML = GetCurrentDate();
+			tHTML += showMsg(tid, ttitle, ttype, tfrom, tto, tdate, tmsg);
+			
+		});
+		document.getElementById("message_box").innerHTML = tHTML;
+
+	}
+	
+	function GetOrderTitle(tid) {
+
+		// get title
+		var ttitle = '';
+		data["ordersets"].forEach(function(object2) {
+			var id = object2.id;
+			//console.log(tid + "\tIndex: " + object2.index);
+			if (id == tid) {
+				ttitle = object2.order_set;
+			}
+		});
+		
+		return ttitle;
+	
+	}
+	
+	function ShowSettingsWindow(tmptitle, tid) {
+	
+		//console.log(data);
+	
+		// refresh data
+		//console.log(JSON.stringify(data["ordersets"]));
+		formatToTable(data["ordersets"]);
+
+		// show data
+		var x = document.getElementById("settingsbox");
+		var ttitle = document.getElementById("settingsboxheader");
+		x.style.display = "block";
+				
+		// find data
+		data["ordersets"].forEach(function(object) {
+			var id = object.id;
+			if (id === tid) {
+				console.log(object.current_dcw);
+				document.getElementById("unique_id_field").innerHTML = object.id;
+				document.getElementById("bundle_id_field").innerHTML = object.bundle;
+				document.getElementById("order_set_field").innerHTML = object.order_set;
+				document.getElementById("version_field").innerHTML = object.version;
+
+				// show lists
+				getUserList("corx_list", object.dcw_owner);
+				getUserList("hls_list", object.hls_owner);
+				//document.getElementById("corx_list").value = object.dcw_owner;								
+				//document.getElementById("hls_list").value = object.hls_owner;
+				
+				document.getElementById("working_group_field").innerHTML = object.working_group;
+				document.getElementById("service_network_field").innerHTML = object.service_network;
+				document.getElementById("updated_field").value = object.updated;
+				document.getElementById("cst_dcw_field").innerHTML = object.cst_order;
+				document.getElementById("nh_orderset_field").innerHTML = object.nh_order;
+				document.getElementById("word_field").innerHTML = object.word_file;
+				document.getElementById("nh_dcw_field").innerHTML = object.current_dcw;
+				document.getElementById("zynx_field").innerHTML = object.zynx_link;
+
+				// set flag
+				changeCurrentFlag(object.flag);
+
+				// set build status / location
+				changeCurrentLocation(object.build_status);
+				
+				// set dates
+				document.getElementById("v1_start").value = object.version1_start;
+				document.getElementById("v1_end").value = object.version1_end;
+				document.getElementById("v2_start").value = object.version2_start;
+				document.getElementById("v2_end").value = object.version2_end;
+				document.getElementById("v3_start").value = object.version3_start;
+				document.getElementById("v3_end").value = object.version3_end;
+				
+			}
+		});
+		ttitle.innerHTML = tmptitle;
+				
+	}
+	
+	function CloseSettingsWindows() {
+		var x = document.getElementById("settingsbox");
+		x.style.display = "none";
+	}
+
+	function CloseMessageWindows() {
+		var x = document.getElementById("messagebox");
+		x.style.display = "none";
+	}
+
+	function formatToTable(data){
+
+		console.log("formatToTable: Redrawing table");
+
+		var table = document.getElementById('order_table');
+		table.innerHTML = '';
+
+		// write out header
+		var tr = document.createElement('tr');
+		tr.innerHTML = '<th class="index_col" style="cursor: pointer;" onclick="sortTable(0);"><u>#</u></th>' + 
+		'<th class="index_col" style="cursor: pointer;" onclick="sortTable(1);"><u>Bundle</u></th>' + 
+		'<th class="toolcol">Tools</th>' + 
+		'<th class="flagcol">Flag</th>' + 
+		'<th class="order_title" style="cursor: pointer;" onclick="sortTable(4);"><u>Order Set</u></th>' + 
+		'<th style="width: 15%; cursor: pointer;" onclick="sortTable(5);"><u>Comment</u></th>' + 
+		'<th class="othercol" style="cursor: pointer;" onclick="sortTable(6);"><u>DCW Owner</u></th>' + 
+		'<th class="othercol" style="cursor: pointer;" onclick="sortTable(7);"><u>Updated</u></th>' + 
+		'<th class="filecol">CST <br>DCW</th>' + 
+		'<th class="filecol">NH <br>Order</th>' + 
+		'<th class="filecol">DOCX</th>' + 
+		'<th class="filecol">NH <br>DCW</th>' + 
+		'<th class="othercol">Build Status</th>' + 
+		'<th class="ganttcol">Gantt Chart</th>';
+		
+		table.appendChild(tr);
+		
+		console.log("formatToTable Debug 1");
+		
+		var datastr = JSON.stringify(data);
+		datastr = datastr.substring(0, 50);
+		console.log("data: " + datastr);
+
+		data.forEach(function(object) {
+		  tr = document.createElement('tr');
+
+		  // get links
+		  var cstlink = '<td class="cell_format"></td>';
+		  if (object.cst_order.toLowerCase() != 'na') {
+			cstlink = '<td class="cell_format"><a href="' + object.cst_order + '" target="_blank"><i class="fa fa-floppy-o" aria-hidden="true" style="font-size:16px;  cursor: pointer;"></i></a></td>';
+		  }
+
+		  var dcwlink = '<td class="cell_format"></td>';
+		  if (object.current_dcw.toLowerCase() != 'na') {
+			dcwlink = '<td class="cell_format"><a href="' + object.current_dcw + '" target="_blank"><i class="fa fa-floppy-o" aria-hidden="true" style="font-size:16px; cursor: pointer;"></i></a></td>';
+		  }
+
+		  var nhorderlink = '<td class="cell_format"></td>';
+		  if (object.nh_order.toLowerCase() != 'na') {
+			nhorderlink = '<td class="cell_format"><a href="' + object.nh_order + '" target="_blank"><i class="fa fa-floppy-o" aria-hidden="true" style="font-size:16px; cursor: pointer;"></i></a></td>';
+		  }
+		  
+		  var wordlink = '<td class="cell_format"></td>';
+		  if (object.word_file.toLowerCase() != 'na') {
+			wordlink = '<td class="cell_format"><a href="' + object.word_file + '" target="_blank"><i class="fa fa-floppy-o" aria-hidden="true" style="font-size:16px; cursor: pointer;"></i></a></td>';
+		  }
+
+		  // title
+		  var trim_title = object.order_set;
+		  let title_length = trim_title.length;
+		  if (title_length > 30) {
+			trim_title = trim_title.substring(0, 30) + "...";
+		  }
+		  
+		  // comment
+		  var trim_comment = object.comment;
+		  let comment_length = trim_comment.length;
+		  if (comment_length > 30) {
+			trim_comment = trim_comment.substring(0, 30) + "...";
+		  }
+		  
+		  // format date for display
+		  var obj_date = object.updated;
+		  obj_date = obj_date.replace('2023-', '');
+		  
+		  // get flag
+		  var flag_class = "green_flag";
+		  if (object.flag == "yellow") {
+			var flag_class = "yellow_flag";
+		  }
+		  if (object.flag == "red") {
+			var flag_class = "red_flag";
+		  }
+		  
+		  // get build status
+
+			//<span id="pdflocation" onclick="changeCurrentLocation('PDF');" class="location_label">&nbsp;PDF&nbsp;</span>
+			//<span id="wordlocation" onclick="changeCurrentLocation('Word');" class="location_label" style="background-color: green;">&nbsp;Word&nbsp;</span>
+			//<span id="dcwlocation" onclick="changeCurrentLocation('DCW');" class="location_label" style="background-color: purple;">&nbsp;DCW&nbsp;</span>
+			//<span id="pchartlocation" onclick="changeCurrentLocation('PChart');" class="location_label" style="background-color: blue;">&nbsp;PChart&nbsp;
+		  
+		  var label_color = "orange";
+		  if (object.build_status == "Word") { label_color = "green"; }
+		  if (object.build_status == "DCW") { label_color = "purple"; }
+		  if (object.build_status == "PChart") { label_color = "blue"; }
+
+		  var build_tag = '<span style="background-color: ' + label_color + '; color: white; border-radius: 3px;">&nbsp;' + object.build_status + '&nbsp;</span>';
+		  
+		  if (trim_title != 'NA') {
+			  tr.innerHTML = 
+				'<td class="cell_format">' + object.index + '</td>' +
+				'<td class="cell_format">' + object.bundle + '</td>' +
+				'<td style="width: 4%"><center><i class="fa fa-commenting" aria-hidden="true" style="font-size:16px; cursor: pointer;" onclick="ajaxGetChat(\'' + object.id + '\')"></i>&nbsp;&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size:16px; cursor: pointer;" onclick="ShowSettingsWindow(\'' + object.order_set + '\', \'' + object.id + '\')"></i>&nbsp;' +
+				'</center></td>' + 
+				//'<i class="fa fa-trash-o" aria-hidden="true" style="font-size:16px; cursor: pointer;"></i></center></td>' + 
+				'<td><center><div class="' + flag_class + '">&nbsp;</div></center></td>' +
+				'<td>' + trim_title + '</td>' +
+				'<td style="width: 15%">' + trim_comment + '</td>' +
+				'<td class="cell_format">' + object.dcw_owner + '</td>' +
+				'<td class="cell_format">' + obj_date + '</td>' + 
+				//'<td class="cell_format">' + object.working_group + '</td>' + 
+				//'<td class="cell_format">' + object.service_network + '</td>' + 
+				//'<td class="cell_format">' + object.hls_builder + '</td>' +
+				cstlink + 
+				nhorderlink + 
+				wordlink + 
+				dcwlink + 
+				'<td class="cell_format">' + build_tag + '</td>' +
+				'<td class="ganttcol"><div class="gantt_timeline"><div class="gantt_phase1">1st Pass</div><div class="gantt_phase2">2nd Pass</div><div class="gantt_phase3">3rd Pass (Workshops)</div><div class="gantt_phase4">4th Pass</div></div></td>';
+			  table.appendChild(tr);
+			}
+		});
+
+	}
+	
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+function sortTable(tindex) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("order_table");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[tindex];
+      y = rows[i + 1].getElementsByTagName("TD")[tindex];
+      //check if the two rows should switch place:
+	  if (tindex != 0) {
+		  if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+			//if so, mark as a switch and break the loop:
+			shouldSwitch = true;
+			break;
+		  }
+	  }
+	  if (tindex == 0) {
+		  if (parseInt(x.innerHTML.toLowerCase()) > parseInt(y.innerHTML.toLowerCase())) {
+			//if so, mark as a switch and break the loop:
+			shouldSwitch = true;
+			break;
+		  }
+	  }
+
+	  
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+// Initialize
+
+// load data
+ajaxGetJson();
+
+// Make the DIV element draggagle:
+dragElement(document.getElementById("settingsbox"));
+dragElement(document.getElementById("messagebox"));
+
+</script>
+
+</body>
+
+</html>

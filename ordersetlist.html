@@ -1,0 +1,1898 @@
+
+
+
+
+
+<html>
+
+	<head>
+		<title>SaferCare Order Sets</title>
+		<meta name="robots" content="noindex">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900%7COpen+Sans:300,400,500" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<style>
+		
+			.main_button {
+				position: absolute;
+				width: 300px;
+				height: 40px;
+				padding-top: 10px;
+				background-color: steelblue;
+				color: white;
+				font-family: arial;
+				font-size: 18px;
+				border-radius: 12px;
+				text-align: center;
+			}
+
+			#maintable {
+				font-family: Arial, Helvetica, sans-serif;
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 12px;
+			}
+
+			#maintable td, #maintable th {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+
+			#maintable tr:nth-child(even){background-color: #f2f2f2;}
+
+			#maintable tr:hover {background-color: #ddd;}
+
+			#maintable th {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				text-align: left;
+				background-color: steelblue;
+				color: white;
+			}
+
+		</style>
+		
+		<script>
+		
+			function OpenViewer(tid) {
+			
+				var turl = 'ehrviewer.html?mode=' + tid;
+				//location.href = turl;
+				window.open(turl);
+			
+			}
+		
+			function ShowTable(tjson) {
+			
+				for (var x=0; x<tjson.length; x++) {
+					let obj = tjson[x];
+					if (obj.type == "title") {
+						tHTML += MakeTitle(obj.data);
+					}
+				}
+			}
+			
+			</script>
+		
+	</head>
+
+	<body style="padding: 0px; margin: 0px; overflow-x: hidden; overflow-y: auto;">
+	
+		<div id="main_banner" style="left: 0px; top: 0px; width: 100%; height: 90px;">
+				
+			<div style="left: 3%; top: 10px; width: 20%; height: 90px; position: absolute;">
+				<a href="index.html"><img src="SaferCare.png" style="height: 70px;"></a>
+			</div>
+
+			<div style="left: 10px; top: 7%; width: 70%; left: 21%; position: absolute; text-align: right; font-family: 'Montserrat'; font-size: 14px;">
+				 <a href="introduction.html">Introduction</a> &nbsp; | &nbsp; <a href="reports.html">Reports</a> &nbsp; | &nbsp; <a href="documents.html">Documents</a> &nbsp; | &nbsp; <a href="ordersetlist.html">Electronic Order Sets</a> &nbsp; | &nbsp; <a href="reimbursement.html">Reimbursement</a> &nbsp; | &nbsp; <a href="contact.html">Contact</a>
+			</div>
+				
+		</div>
+		
+		<div style="background-color: rgb(240, 245, 249); width: 100%; top: 90px; height: calc(100% - 90px); scroll: auto;">
+
+			<center>
+			<br>&nbsp;
+			<table id="maintable" style="left: 2%; width: 90%; border: 1px solid black; text-align: center;">
+			
+				<tr><td width="5%"></td>
+					<th style="text-align: center; cursor: pointer;" onclick="sortTable(1);">&#8595; Electronic Order Set</th>
+					<th style="text-align: center; cursor: pointer;" onclick="sortTable(2);">&#8595; Category</th>
+					<th style="text-align: center;">Comments & Evidence</th>
+					<th style="text-align: center; cursor: pointer;" onclick="sortTable(4);">&#8595; Review By</th>
+					<th style="text-align: center; cursor: pointer;" onclick="sortTable(5);">&#8595; Final Signoff</th>
+					<th style="text-align: center; cursor: pointer;" onclick="sortTable(6);">&#8595; Updated</th>
+					<th style="text-align: center;">Preview</th>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Allergic Reaction</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('allergy');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Asthma</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('asthma');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Blood and Body Fluid Exposure</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('bbfe');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<!-- hyperemesis -->
+				<tr><td width="5%"></td>
+					<td width="20%">ED Cannabinoid Hyperemesis Syndrome</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('hyperemesis');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">ED Chest Pain</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('chestpain');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Code Trauma</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('code');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Headache</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('headache');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Opioid Overdose</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('opioid');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Pain Nausea Vomiting</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nausea');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Procedural Sedation</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('sedate');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Seizure</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('seizure');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Sexual Assault</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('assault');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Shortness of Breath</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('sob');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Spine Management</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('spine');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Vaginal Bleeding</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('vaginalbleed');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Abdominal Pain</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('abdo');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ICU Admission</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icuadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">LTC Admission</td>
+					<td width="10%">Long Term Care</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('ltcadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MED Admission</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('medadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MED Eating Disorders Medical Stabilization Admission</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('eatingdo');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MH Psychiatric Admission</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('psychadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED Admission</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SURG General Admission</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('surgadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Major Burn</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('majorburn');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 Baricitinib</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('baricitinib');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 General Admission</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('covidadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 ICU Admission</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('covidicuadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 Remdesivir</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('remdesivir');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 Sotrovimab</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('sotorvimab');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 Tocilizumab</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('tocilizumab');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">COVID-19 Nirmatrelvir-ritonavir (Paxlovid)</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('paxlovid');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CRIT ARDS Ventilation Protocol</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('ards');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">GERI MED Delirium</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gdelirium');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MED Venous Thromboembolism (VTE) Treatment</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('medvte');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PAL COVID-19 End of Life (non-ICU)</td>
+					<td width="10%">Medicine Palliative Care</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('palcovid');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PAL Crisis Symptom Management Inpatient</td>
+					<td width="10%">Medicine Palliative Care</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('palcrisis');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PAL Symptom Management</td>
+					<td width="10%">Medicine Palliative Care</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/18/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('palsx');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CARD Heart Failure Management</td>
+					<td width="10%">Medicine, Cardiology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('cardhfail');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CARD Non-ST Elevation Myocardial Infarction (STEMI) Admission Unstable Angina (UA)</td>
+					<td width="10%">Medicine, Cardiology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('cardnstemi');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CARD ST-Elevation Myocardial Infarction (STEMI) Admission</td>
+					<td width="10%">Medicine, Cardiology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('cardstemi');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CARD ST-Elevation Myocardial Infarction (STEMI) Fibrinolytic Therapy</td>
+					<td width="10%">Medicine, Cardiology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('cardstemifib');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CRIT Sepsis</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('crit_sepsis');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">PED ED Code Trauma</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('ped_code_trauma');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">PED Sepsis 0 to 28 Days</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/20/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('ped_sepsis28');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID C. Difficile Infection</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('cdiff');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Pneumonia HAP (Nosocomial Hospital Acquired)</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('hap');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MED Venous Thromboembolism (VTE) Prophylaxis</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('medprovte');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Meningitis</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('menin');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED ED Acetaminophen (Tylenol) Overdose NAC</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedacet');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED ED Asthma Acute Management</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedacasthma');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED Sepsis Age 29 Days and Greater</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedsepsisg29');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ORTHO Fractured Hip Venous Thromboembolism (VTE) Prophylaxis</td>
+					<td width="10%">Surgery - Orthopedics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('orthofracthipvte');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Postpartum VTE Thromboprophylaxis</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obpostvte');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MH Clozapine Initiation Maintenance and Monitor</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('clozmain');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MH Clozapine Initiation (Slow)</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('clozslow');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MH Clozapine Initiation (Moderate)</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('clozmod');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">Blood Products Emergent STAT</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('bloodstat');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">Blood Products Make Available and Transfuse</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('bloodtrans');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">MED Peripherally Inserted Central Catheter (PICC) Line Insertion</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('medpicc');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">GI Helicobacter Pylori Eradication</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gihpylori');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Aspiration Pneumonia</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idasppneu');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Febrile Neutropenia</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idfebneu');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Pneumonia CAP (Community Acquired)</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idpneumocap');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID AMB IV Antimicrobial Therapy</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idambiv');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Cellulitis Skin and Soft Tissue Infection (SSTI)</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idcellskin');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID LTC Influenza (Oseltamivir)</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idltcinflu');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Pyelonephritis</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/23/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idpyelo');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">GI Alcoholic Hepatitis</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gialchep');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Antepartum Hemorrhage Admission and Management</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obantehem');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Bakri (Intrauterine) Balloon Monitoring</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obbakri');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Chorioamnionitis</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obchorio');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Intrauterine Fetal Death Investigation</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obiugrinvest');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB RhIG (RhoGAM) for Rh-Negative Patients</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obrhig');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Preterm Premature Rupture of Membranes (PPROM)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/21/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pprom');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED SUS Nechako Centre Youth General Admission Orders</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pednechako');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SUS Adult Withdrawal Management Unit (AWMU) Assessment</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('susawmu');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CRIT Continuous Renal Replacement Therapy</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('critcrrt');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SUS Acute Management of Opioid Withdrawal</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('susacuteopioidw');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SUS Buprenorphine Naloxone (Suboxone) Induction</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('susbuphrensubox');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SUS Nicotine Replacement</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('susnicorep');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CRIT Sedation and Analgesia for Mechanically Ventilated Patients</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('critsedana');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Buprenorphine Naloxone (Suboxone)</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('edburphensub');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED Bronchiolitis</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedbronchio');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED Febrile Neutropenia</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">06/29/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedfebneut');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SURG VTE Prophylaxis</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('surgvte');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SURG Leech Therapy For Venous Congestion</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('surgleech');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED MH Admission</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pedmgadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PAL Palliative Sedation Therapy</td>
+					<td width="10%">Medicine Palliative Care</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pallsedate');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB HIV Positive Intrapartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obhivpos');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Antepartum VTE Prophylaxis (Enoxaparin)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obantevteprop');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ICU Organ Donation after Cardiac Death (DCD)</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icuorgandonate');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ICU Extubation</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/03/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icuextub');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ANES Labour Fentanyl Patient Controlled Analgesia (PCA)</td>
+					<td width="10%">Anesthesia</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('aneslabour');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Hyperkalemia Management</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('edhyperk');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Fallopian Tube Recanalization</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obfallopian');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Preoperative Caesarean Delivery</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obpreopcs');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Postpartum Caesarean Delivery</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obpostcs');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ONC Bacillus Calmette-Guerin (BCG)</td>
+					<td width="10%">Oncology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('oncbacillus');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">PED Newborn Admission</td>
+					<td width="10%">Pediatrics</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/07/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('pednewborn');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NEPH Peritoneal Dialysis Catheter Insertion (Multiphase)</td>
+					<td width="10%">Nephrology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nephperidia');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB NIFEdipine Protocol Preterm Tocolysis</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obnifedtoco');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SURG Thoracic Post Operative (Multiphase)</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('surgthorpost');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SURG Thoracic Pre-Operative (Day of Surgery)</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('surgthorpre');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">URO Extracorporeal Shockwave Lithotripsy (ESWL) (Multiphase)</td>
+					<td width="10%">Surgery - Urology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('uroextraswl');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">URO Postoperative Non-Emergency Major Urological Surgery (Multiphase)</td>
+					<td width="10%">Surgery - Urology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('uropostnonemurosurg');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">URO Preoperative Non-Emergency Major Urological Surgery</td>
+					<td width="10%">Surgery - Urology</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/13/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('uropreopemmajuro');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">GYN Abnormal Uterine Bleeding</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gynabnomutbleed');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Gestational Diabetes Intrapartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obgestdiaintra');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Gestational Diabetes Postpartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obgestdiapost');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Gestational Hypertension and Pre-Eclampsia Postpartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obgesthtnpre');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Group B Streptococcus Prophylaxis (GBS)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obgroupbstrepproph');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB MAGnesium Sulfate for Fetal Neuroprotection</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obmagsulffetal');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OPH Cataract Extraction and Intraocular Lens Implant and Trabeculectomy Pre Operative</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/16/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('ophcatextintra');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Admission Severe Polytrauma</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%">TBA</td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Cervical Spine Precautions</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icucervspine');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Cervical Thoracic Lumbar Precautions</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icucervthorlump');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Pulmonary Embolism Investigations</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icupulmemb');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Standard Bowel Protocol</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icustandbowelpro');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Status Epilepticus</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icustatusepi');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->ICU Subarachnoid Hemorrhage</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('icusubhem');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->GYN Methotrexate for Ectopic Pregnancy</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gynmethoect');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Agitation Medications</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhagitatemed');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Bipolar Disorder Medications</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhbipolardo');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH ED Form 4 x 1 Orders</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhedform4x1');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH ED Form 4 x 2 Orders</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhedform4x2');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Form 4 x 1 Orders</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhform4x1');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Form 4 x 2 Orders</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhform4x2');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Lithium Administration</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhlithadm');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Lithium Pre-Initiation</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhlithpre');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH Rapid Tranquilization</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhrapidtranq');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%"><!-- <i class="fa fa-certificate" aria-hidden="true"></i> -->MH SUS Opioid Dependent Bowel Protocol</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">07/22/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('mhsusopioid');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SURG Bowel Surgery Pre Operative (Day of Surgery)</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('surgbowelpreop');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Labour and Delivery Admission</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('oblabourdel');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB HIV High Risk Unknown Intrapartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obhivhiintra');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Fetal Loss Greater than 13 Weeks (Multiphase)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obfetalloss13wk');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Antepartum Admission</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obanteadmit');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CRIT Electrolyte Replacement</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('critelectrorep');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">CRIT Comfort Care</td>
+					<td width="10%">Critical Care / ICU</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/06/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('critcomfort');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Vaginal Delivery Postpartum (Assisted Vaginal Birth or Complex Lacerations) (Multiphase)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obvagdevposasst');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">OB Vaginal Delivery Postpartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obvagdevpos');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Postpartum Hemorrhage</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obposthemorr');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Emergency - Pre Operative (Day of Surgery)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obemergpreop');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">GYN Post Operative Pain and Symptom Management</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gynpostoppainsx');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">GYN Oncology Pathology Specimens</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gynoncpathspec');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">GYN Manual Vacuum Aspiration</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">08/19/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gynmanvacasp');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Oxytocin Induction or Augmentation of Labour</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is CST content with NH additions - we need to review carefully as the maximum and starting rate as well as titration of oxytocin are different					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/02/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('oboxyindaug');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">OB Hypertensive Disorders in Pregnancy Antepartum</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is CST content with NH additions. Key parts that need review - vital signs frequency and max dose of antihypertensive medications.
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/02/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('obhyperdispreg');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NEURO Thrombolytic Therapy for Stroke</td>
+					<td width="10%">Internal Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+Outdated NH content (will obtain CST content for this order set). For consideration - NH has paper order sets for 24 hours Post Thrombolysis, and Greater Than 24 hours Post Thrombolysis- do we build separately or incorporate herein? Consider including tenekcteplase (TNK) as it’s being considered as alternative to alteplase (thishowever will require staff education). 
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/02/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('neurothrombtherstroke');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">GYN Enhanced Recovery After Surgery (ERAS) Pre Operative (Day of Surgery)</td>
+					<td width="10%">Obs/Gyne</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is built from CST, and will need to be fully reviewed. CST refers to a Gynecology Surgery Pathway which we'll need to obtain (subphase?).
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/02/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('gyneeraspreop');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+				
+				<tr><td width="5%"></td>
+					<td width="20%">ED Adult Frostbite Grade 2 to 4</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is NH content - Need recommendation for IV NS volume, rate, frequency and max temperature of warming solution. 					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/02/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('edfrostbitegr24');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED Adult Frostbite Grade 1</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/02/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('edfrostbitegr1');" style="cursor: pointer; color: steelblue; font-size: 16px;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">Vaccinations Post-Emergent Splenectomy</td>
+					<td width="10%">Surgery</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is CST Content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('vaccpostsplen');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">SUS Methadone for Opioid Use Disorder</td>
+					<td width="10%">Mental Health / Substance Use</td>
+					<td width="5%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is CST content. For review - we will need a recommendation on methadone frequency and patient care monitoring.				
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('susmethopioiddo');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Vaginal Bleeding</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedvagbleed');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Stroke Symptoms</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedstrokesx');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Shortness of Breath</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content - this also contains a reference to asthma material (need feedback on the appropriateness of this).					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedsob');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Sepsis-Like Illness</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedsepsislike');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Radiographs (X-Ray) Distal Upper and Lower Extremity Injury</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedradiodist');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Hyperglycemia</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedhypergly');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">NIP ED Abdominal Pain</td>
+					<td width="10%">Emergency Med - Nurse Initiated Protocol</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('nipedabdopain');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Ventilator Associated Pneumonia (VAP)</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is CST content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idventilvap');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ID Vancomycin Initiation</td>
+					<td width="10%">Infectious Diseases</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health Content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('idvancoinit');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">DIET Enteral Nutrition and Feeding Tube Management</td>
+					<td width="10%">Medicine</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is Northern Health Content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('dietenteral');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+				<tr><td width="5%"></td>
+					<td width="20%">ED IV Fluids</td>
+					<td width="10%">Emergency Med</td>
+					<td width="20%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">
+This is CST Content.					
+					</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><i class="fa fa-file"></i> <span style="font-size: 10px; color: gray;">TBA</span></td>
+					<td width="10%"><span style="font-size: 10px; color: green;">09/08/2023</span></td>
+					<td width="5%"><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('edivfluids');" style="cursor: pointer; color: steelblue;"></i></td>
+				</tr>
+
+			</table>
+			
+			<!-- <br><i style="font-family: arial;"><i class="fa fa-certificate" aria-hidden="true"></i> = Accelerated Build Process</i> -->
+			
+			</center>
+
+			<br>&nbsp;
+			<br>&nbsp;
+			<br>&nbsp;
+		
+		</div>
+		
+
+		<script>
+		
+			function NumberTable() {
+			// renumber table
+				var table = document.getElementById("maintable");
+				for (var i = 1, row; row = table.rows[i]; i++) {
+					//iterate through rows
+					//rows would be accessed using the "row" variable assigned in the for loop
+					row.cells[0].innerHTML = i;
+				}
+			}
+
+			NumberTable();
+
+		
+			function sortTable(n) {
+			  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+			  table = document.getElementById("maintable");
+			  switching = true;
+			  // Set the sorting direction to ascending:
+			  dir = "asc";
+			  /* Make a loop that will continue until
+			  no switching has been done: */
+			  while (switching) {
+				// Start by saying: no switching is done:
+				switching = false;
+				rows = table.rows;
+				/* Loop through all table rows (except the
+				first, which contains table headers): */
+				for (i = 1; i < (rows.length - 1); i++) {
+				  // Start by saying there should be no switching:
+				  shouldSwitch = false;
+				  /* Get the two elements you want to compare,
+				  one from current row and one from the next: */
+				  x = rows[i].getElementsByTagName("TD")[n];
+				  y = rows[i + 1].getElementsByTagName("TD")[n];
+				  /* Check if the two rows should switch place,
+				  based on the direction, asc or desc: */
+				  if (n != 10) {
+					  if (dir == "asc") {
+						if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+						  // If so, mark as a switch and break the loop:
+						  shouldSwitch = true;
+						  break;
+						}
+					  } else if (dir == "desc") {
+						if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+						  // If so, mark as a switch and break the loop:
+						  shouldSwitch = true;
+						  break;
+						}
+					  }
+				  }
+
+				  if (n == 10) {
+					  if (dir == "asc") {
+						if (parseInt(x.innerText.toLowerCase()) > parseInt(y.innerText.toLowerCase())) {
+						  // If so, mark as a switch and break the loop:
+						  shouldSwitch = true;
+						  break;
+						}
+					  } else if (dir == "desc") {
+						if (parseInt(x.innerText.toLowerCase()) < parseInt(y.innerText.toLowerCase())) {
+						  // If so, mark as a switch and break the loop:
+						  shouldSwitch = true;
+						  break;
+						}
+					  }
+				  }
+
+				}
+				if (shouldSwitch) {
+				  /* If a switch has been marked, make the switch
+				  and mark that a switch has been done: */
+				  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				  switching = true;
+				  // Each time a switch is done, increase this count by 1:
+				  switchcount ++;
+				} else {
+				  /* If no switching has been done AND the direction is "asc",
+				  set the direction to "desc" and run the while loop again. */
+				  if (switchcount == 0 && dir == "asc") {
+					dir = "desc";
+					switching = true;
+				  }
+				}
+			  }
+			  
+			  NumberTable();
+					  
+			}
+				
+		</script>
+
+
+	</body>
+	
+</html>

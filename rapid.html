@@ -1,0 +1,953 @@
+
+<html>
+  <head>
+    <title>SaferCare Order Sets</title>
+		<meta name="robots" content="noindex">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900%7COpen+Sans:300,400,500" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<style>
+		
+			.main_button {
+				position: absolute;
+				width: 300px;
+				height: 40px;
+				padding-top: 10px;
+				background-color: steelblue;
+				color: white;
+				font-family: arial;
+				font-size: 18px;
+				border-radius: 12px;
+				text-align: center;
+			}
+
+			#maintable {
+				font-family: Arial, Helvetica, sans-serif;
+				border-collapse: collapse;
+				width: 100%;
+                padding-bottom: 20px;
+			}
+
+			#maintable td, #maintable th {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+
+			#maintable tr:nth-child(even){background-color: #f2f2f2;}
+
+			#maintable tr:hover {background-color: #ddd;}
+
+			#maintable th {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				text-align: left;
+				background-color: steelblue;
+				color: white;
+			}
+
+            #tabletitle th {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				text-align: left;
+				background-color: steelblue;
+				color: white;
+			}
+
+
+		</style>
+		
+		<script>
+		
+			function OpenViewer(tid) {
+			
+				var turl = 'rapid/ehrviewer.html?mode=' + tid;
+				//location.href = turl;
+				window.open(turl);
+			
+			}
+		
+			function ShowTable(tjson) {
+			
+				for (var x=0; x<tjson.length; x++) {
+					let obj = tjson[x];
+					if (obj.type == "title") {
+						tHTML += MakeTitle(obj.data);
+					}
+				}
+
+			
+			}
+			
+			</script>
+		
+	</head>
+
+	<body style="padding: 0px; margin: 0px; overflow-x: hidden; overflow-y: auto;">
+	
+		<div id="main_banner" style="left: 0px; top: 0px; width: 100%; height: 90px;">
+				
+			<div style="left: 3%; top: 10px; width: 20%; height: 90px; position: absolute;">
+				<a href="index.html"><img src="SaferCare.png" style="height: 70px;"></a>
+			</div>
+
+			<div style="left: 10px; top: 7%; width: 70%; left: 21%; position: absolute; text-align: right; font-family: 'Montserrat'; font-size: 14px;">
+				 <a href="introduction.html">Introduction</a> &nbsp; | &nbsp; <a href="schedule.html">Schedule</a> &nbsp; | &nbsp; <a href="documents.html">Documents</a> &nbsp; | &nbsp; <a href="ordersetlist.html">Order Sets</a> &nbsp; | &nbsp; <a href="reimbursement.html">Reimbursement</a> &nbsp; | &nbsp; <a href="contact.html">Contact</a>
+			</div>
+				
+		</div>
+		
+        
+		
+        <div style="background-color: rgb(240, 245, 249); width: 100%; top: 90px; height: calc(100% - 90px); scroll: auto; padding-top: 33px;">
+
+
+        
+
+      <center>
+        
+        <table id="maintable" style="left: 2%; width: 90%; border: 1px solid black; text-align: center;">
+			
+        <tbody>
+        <tr>
+            <th colspan="6" style="text-align: center;">Safer Care OBGYN Ordersets</th> 
+        <tr>
+            <th style="text-align: center;">Order Set Name</th>
+            <th style="text-align: center;">Category</th>
+            <th style="text-align: center;">pdf</th>
+            <th style="text-align: center;">Cerner Preview</th>
+            <th style="text-align: center;">Evidence</th>
+            <th style="text-align: center;">Last Updated</th>
+        </tr>
+
+        <tr>
+            <td width="25%">Oxytocin Induction or Augmentation</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye" aria-hidden="true" onclick="OpenViewer('safercare-oxytocin-induction-DRAFT');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+        </tr>
+        <tr>
+            <td width="25%">Outpatient Total Laparoscopic Hysterectomy</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href="rapid/safercare-outpatient-tlh.pdf"><i class="fa fa-file" aria-hidden="true"></i></a><span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('safercare-outpatient-tlh');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/27/2023</span></td>
+        </tr>
+
+        <tr>
+            <th colspan="6" style="text-align: center;">CST OBGYN Ordersets</th> 
+        <tr>
+            <th style="text-align: center;">Order Set Name</th>
+            <th style="text-align: center;">Category</th>
+            <th style="text-align: center;">pdf</th>
+            <th style="text-align: center;">Cerner Preview</th>
+            <th style="text-align: center;">Evidence</th>
+            <th style="text-align: center;">Last Updated</th>
+        </tr>    
+
+            <tr>
+            <td width="25%">Abnormal Uterine Bleeding ((Module))</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-abnormal-uterine-bleeding-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">AFI and Doppler 2x a Week for 2 Weeks BCW (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-afi-and-doppler-2x-a-week-for-2-weeks-bcw-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">AFI and Doppler 2x a Week for 2 Weeks ((Module))</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-afi-and-doppler-2x-a-week-for-2-weeks-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Afi and Doppler 3x a Week for 2 Weeks (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-afi-and-doppler-3x-a-week-for-2-weeks-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Afi and Doppler Qdaily for 1 Week (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-afi-and-doppler-qdaily-for-1-week-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Amb Fetal Monitoring Post Dates (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-amb-fetal-monitoring-post-dates-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Amb Induction and Cervical Ripening with Prostoglandin (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-amb-induction-and-cervical-ripening-with-prostoglandin-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Amb Outpatient Fetal Surveillance Multiples</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-amb-outpatient-fetal-surveillance-multiples');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Amb Outpatient Fetal Surveillance Singleton</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-amb-outpatient-fetal-surveillance-singleton');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Amb Perinatal Iron Sucrose Infusion Day of Treatment</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-amb-perinatal-iron-sucrose-infusion-day-of-treatment');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Antepartum Admission</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-antepartum-admission');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Bowel Protocol (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-bowel-protocol-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Bariatric Sedation</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-bariatric-sedation');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Discharge</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-discharge');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Laminaria Insertion 1 Day (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-laminaria-insertion-1-day-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Laminaria Insertion 2 Day (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-laminaria-insertion-2-day-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Post Procedure (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-post-procedure-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Pre Procedure Cst 2</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-pre-procedure-cst 2');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Pre Procedure</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-pre-procedure');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Amb Sedation</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-amb-sedation');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Laminaria Discharge</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-laminaria-discharge');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Care Laminaria Insertion</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-care-laminaria-insertion');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Cesarean Section Pre Operative (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-cesarean-section-pre-operative-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Contraction Stress Test (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-contraction-stress-test-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Diabetes in Pregnancy Intrapartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-diabetes-in-pregnancy-intrapartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Emergency Pre Operative Day of Surgery</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-emergency-pre-operative-day-of-surgery');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Evolving Chorioamnionitis or Intra Amniotic Infection (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-evolving-chorioamnionitis-or-intra-amniotic-infection-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">External Cephalic Version (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-external-cephalic-version-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Fetal Demise and or Loss Greater than 13 Weeks (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-fetal-demise-and-or-loss-greater-than-13-weeks-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gestational Diabetes Postpartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gestational-diabetes-postpartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gestational Hypertension and Pre Eclampsia Labs Full (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gestational-hypertension-and-pre-eclampsia-labs-full-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gestational Hypertension and Pre Eclampsia Labs Standard (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gestational-hypertension-and-pre-eclampsia-labs-standard-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gestational Hypertension and Pre Eclampsia Postpartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gestational-hypertension-and-pre-eclampsia-postpartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Group B Strep Prophylaxis Gbs (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-group-b-strep-prophylaxis-gbs-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gyn Urology Oncology Enhanced Recovery After Surgery Eras Post Operative (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gyn-urology-oncology-enhanced-recovery-after-surgery-eras-post-operative-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gynecology Day Surgery Post Operative (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gynecology-day-surgery-post-operative-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gynecology Inpatient Post Operative (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gynecology-inpatient-post-operative-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gynecology Oncology Enhanced Recovery After Surgery Eras Post Operative (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gynecology-oncology-enhanced-recovery-after-surgery-eras-post-operative-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gynecology Pre Operative Day of Surgery</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gynecology-pre-operative-day-of-surgery');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Gynecology Unscheduled Short Stay Patients Post Operative Discharge From Pacu</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-gynecology-unscheduled-short-stay-patients-post-operative-discharge-from-pacu');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">High Acuity Unit Hau Admission</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-high-acuity-unit-hau-admission');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Hiv High Risk Unknown Intrapartum (Module) 2</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-hiv-high-risk-unknown-intrapartum-module-2');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Hiv High Risk Unknown Intrapartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-hiv-high-risk-unknown-intrapartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Hiv High Risk Unknown Postpartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-hiv-high-risk-unknown-postpartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Hiv Positive Intrapartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-hiv-positive-intrapartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Hiv Positive Postpartum (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-hiv-positive-postpartum-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Hysteroscopy (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-hysteroscopy-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Induction and Cervical Ripening with Prostaglandin (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-induction-and-cervical-ripening-with-prostaglandin-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Induction of Labour with Mifepristone and Misoprostol (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-induction-of-labour-with-mifepristone-and-misoprostol-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Induction or Augmentation of Labour with Oxytocin (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-induction-or-augmentation-of-labour-with-oxytocin-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Intrauterine Fetal Death Investigation (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-intrauterine-fetal-death-investigation-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Intrauterine Pressure Catheter Iupc with or without Intrapartum Amnioinfusion</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-intrauterine-pressure-catheter-iupc-with-or-without-intrapartum-amnioinfusion');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Isolated Fever in Labour with Epidural (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-isolated-fever-in-labour-with-epidural-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Labour and Delivery Admission (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-labour-and-delivery-admission-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Magnesium Sulfate Administration for Fetal Neuroprotection (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-magnesium-sulfate-administration-for-fetal-neuroprotection-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Magnesium Sulfate Administration for Seizure Prevention (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-magnesium-sulfate-administration-for-seizure-prevention-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Manual Vacuum Aspiration</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-manual-vacuum-aspiration');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Methotrexate for Ectopic Pregnancy (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-methotrexate-for-ectopic-pregnancy-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Methotrexate Single Dose for Ectopic Pregnancy (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-methotrexate-single-dose-for-ectopic-pregnancy-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Mfm Complex Monochorionic Twins Post Operative</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-mfm-complex-monochorionic-twins-post-operative');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Mfm Complex Monochorionic Twins Pre Operative Admission (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-mfm-complex-monochorionic-twins-pre-operative-admission-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Mfm Complex Monochromic Twins Pre Operative</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-mfm-complex-monochromic-twins-pre-operative');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Mfm Intrauterine Transfusion for Viable Fetus Post Procedure Delivery Suite</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-mfm-intrauterine-transfusion-for-viable-fetus-post-procedure-delivery-suite');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Mfm Intrauterine Transfusion (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-mfm-intrauterine-transfusion-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Nausea Vomiting Hyperemesis (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-nausea-vomiting-hyperemesis-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Obstetric Sepsis</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-obstetric-sepsis');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Pat Peg Day Surgery Post Operative</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-pat-peg-day-surgery-post-operative');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Pat Peg Pre Operative Day of Surgery</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-pat-peg-pre-operative-day-of-surgery');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Perinatal Iv Iron Therapy Inpatient (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-perinatal-iv-iron-therapy-inpatient-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Post Operative Pain and Symptom Management Cst 52263 2</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-post-operative-pain-and-symptom-management-cst-52263-2');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Post Operative Pain and Symptom Management Cst 52263</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-post-operative-pain-and-symptom-management-cst-52263');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Postpartum Cesarean Section (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-postpartum-cesarean-section-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Postpartum Hemorrhage (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-postpartum-hemorrhage-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Postpartum Vaginal Delivery Assisted Vaginal Birth or Complex Lacerations (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-postpartum-vaginal-delivery-assisted-vaginal-birth-or-complex-lacerations-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Postpartum Vaginal Delivery</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-postpartum-vaginal-delivery');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Postpartum Vte Thromboprophylaxis (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-postpartum-vte-thromboprophylaxis-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Pre and Post Procedure (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-pre-and-post-procedure-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Pre Procedure Enhanced Recovery After Surgery Eras Pre Operative Day of Surgery</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-pre-procedure-enhanced-recovery-after-surgery-eras-pre-operative-day-of-surgery');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Pre Procedure Enhanced Recovery After Surgery Eras Pre Operative Pre Anesthesia Clinic</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-pre-procedure-enhanced-recovery-after-surgery-eras-pre-operative-pre-anesthesia-clinic');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Preterm Labour (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-preterm-labour-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Preterm Premature Rupture of Membranes Pprom (Module)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-preterm-premature-rupture-of-membranes-pprom-module');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Sedation Intra Procedure</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-sedation-intra-procedure');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Sedation Post Procedure</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-sedation-post-procedure');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Sedation Pre Procedure</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-sedation-pre-procedure');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Transfer From High Acuity Unit Hau to Inpatient Ward</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-transfer-from-high-acuity-unit-hau-to-inpatient-ward');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            <tr>
+            <td width="25%">Urology Gynecology Enhanced Recovery After Surgery Eras Post Operative (Multiphase)</td>
+            <td width="15%">OBGYN</td>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><a href=""><i class="fa fa-eye"aria-hidden="true" onclick="OpenViewer('cst-urology-gynecology-enhanced-recovery-after-surgery-eras-post-operative-multiphase');" style="cursor: pointer; color: steelblue;"></i>
+            <td width="10%"><a href=><i class=></i></a>-<span style="font-size: 10px; color: gray;"></span>
+            <td width="10%"><span style="font-size: 10px; color: green;">06/24/2023</span></td>
+            </tr>
+            
+            
+        <tr>
+            <th colspan="6" style="text-align: center; background-color: transparent;"></th>
+        </tr>
+        <tr>
+            <th colspan="6" style="text-align: center;">Safer Care OBGYN Ordersets</th>
+        </tr>
+        <tr>
+            <th colspan="6" style="text-align: center; background-color: transparent;"></th>
+        </tr>
+
+        <tr>
+            <th colspan="6" style="text-align: center; background-color: transparent;"></th>
+        </tr>
+        <tr>
+            <th colspan="6" style="text-align: center;">Template</th>
+        </tr>
+        <tr>
+            <th colspan="6" style="text-align: center; background-color: transparent;"></th>
+        </tr>
+
+        </tbody>
+        </table>
+                
+                
+        
+      </center>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+[
+  {
+    "type": "title",
+    "data": "Outpatient Total Laparoscopic Hysterectomy"
+  },
+  { "type": "category", "data": "Diet / Nutrition" },
+  {
+    "type": "order",
+    "data": "Diet as tolerated",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Other",
+    "value": ""
+  },
+  { "type": "category", "data": "Continuous Infusions" },
+  {
+    "type": "order",
+    "data": "Ringers Lactate",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "125 ml/hr, saline lock when drinking well",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Saline 0.9% (NS)",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "125 ml/hr, saline lock when drinking well",
+    "value": ""
+  },
+  { "type": "category", "data": "Patient Care" },
+  {
+    "type": "note",
+    "data": "If respiratory rate less than 10 breaths per minute:",
+    "value": "X"
+  },
+  {
+    "type": "order",
+    "data": "Do not administer any further opioids",
+    "value": "checked"
+  },
+  {
+    "type": "order",
+    "data": "Contact MRP or designate and/or  respiratory therapist (RT) as available STAT",
+    "value": "checked"
+  },
+  {
+    "type": "order",
+    "data": "stimulate patient",
+    "value": "checked"
+  },
+  {
+    "type": "order",
+    "data": "administer O2 at 10L/minute by mask",
+    "value": "checked"
+  },
+  { "type": "category", "data": "Medications" },
+  {
+    "type": "note",
+    "data": "Preoperative",
+    "value": "X"
+  },
+  {
+    "type": "note",
+    "data": "Pain Management",
+    "value": "X"
+  },
+  {
+    "type": "order",
+    "data": "acetaminophen 975mg PO/PR once",
+    "value": "checked"
+  },
+  {
+    "type": "sentence",
+    "data": "administer 1 hour prior to operation",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "naproxen 500mg PO/PR once",
+    "value": "checked"
+  },
+  {
+    "type": "sentence",
+    "data": "administer 1 hour prior to operation",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "gabapentin 300mg PO once",
+    "value": "checked"
+  },
+  {
+    "type": "sentence",
+    "data": "administer 1 hour prior to operation",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Postoperative",
+    "value": "X"
+  },
+  {
+    "type": "note",
+    "data": "Non-opiod Pain Management",
+    "value": "X"
+  },
+  {
+    "type": "order",
+    "data": "acetaminophen 975mg PO q6 hours",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "max 4g per day, start 6 hours after last preoperative dose given",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "naproxen 500mg PO q8 hours",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "naproxen 500mg PO q8 hours after any preoperative NSAIDs given, i.e. ketorolac or naproxen",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Opiod Pain Management",
+    "value": "X"
+  },
+  {
+    "type": "order",
+    "data": "HYDROmorphone 1-2mg PO q__ hours PRN",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "for pain",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "OR",
+    "value": "X"
+  },
+  {
+    "type": "order",
+    "data": "HYDROmorphone 0.5mg subcutaneous q1 hour PRN",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "for breakthrough pain, max 3 doses",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "OR",
+    "value": "X"
+  },
+  {
+    "type": "order",
+    "data": "morphine 2 to 4 mg IV q___ hour PRN",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "for pain",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "If respiratory rate less than 8 breaths per minute or concerned about opioid overdose",
+    "value": "x"
+  },
+  {
+    "type": "order",
+    "data": "naloxone 0.2 to 0.4mg IV STAT",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "may repeat q3 min x2 additional doses",
+    "value": ""
+  },
+  {
+    "type": "note",
+    "data": "Nausea Management:",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "ondansetron 4mg IV q6 hours PRN",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "for nausea, start 6 hours after any intraoperative ondansetron given",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "dimenhyDRINATE 25 to 50 mg IV q4 hours PRN",
+    "value": ""
+  },
+  {
+    "type": "sentence",
+    "data": "for nausea",
+    "value": ""
+  },
+  { "type": "category", "data": "Admit/Transfer/Discharge" },
+  {
+    "type": "order",
+    "data": "Discharge once site specific crieteria met and patient seen by MRP or designate",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Patient must void prior to discharge; if unable to void do bladder scan and contact MRP",
+    "value": "x"
+  },
+  {
+    "type": "order",
+    "data": "Home prescriptions and faxed to retail pharmacy or given to patient",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "May return to showering as usual at home",
+    "value": "x"
+  },
+  {
+    "type": "order",
+    "data": "Patient follow up appointment in ____ days or ____ weeks",
+    "value": ""
+  }
+]

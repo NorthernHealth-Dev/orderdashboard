@@ -1,0 +1,1248 @@
+<html>
+
+	<head>
+	
+		<title>SaferCare Order Set Build</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
+		<script src="tracker_data.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+
+		<style>
+		
+			@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+			table {
+				font-family: arial, sans-serif;
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 12px;
+			}
+
+			td, th {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 8px;
+			}
+			
+			th {
+				background-color: steelblue;
+				color: white;
+			}
+
+			tr:nth-child(even) {
+				background-color: #dddddd;
+			}
+			
+			.mainbutton {
+				position: right;
+				top: 10px;
+				font-size: 14px;
+				text-align: center;
+				font-family: 'Roboto Condensed';
+				background-color: lightblue;
+				border-radius: 3px;
+				width: 100px;
+				height: 25px;
+				margin-top: 2%;
+				padding-top: 5px;
+				cursor: pointer;
+				float: right;
+				margin-right: 10px;
+			}
+			
+			.top_banner {
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 70px;
+				display: block;
+				position: absolute;
+
+			}
+			
+			.main_content {
+				left: 0px;
+				top: 70px;
+				width: 100%;
+				height: calc(100% - 70px);
+				position: absolute;
+				display: block;
+				font-size: 8px;
+				overflow-y: auto;
+			}
+			
+			.settings_window {
+				display: none;
+				left: 15%;
+				top: 10%;
+				width: 70%;
+				height: 80%;
+				border-radius: 10px;
+				border: 2px solid steelblue;
+				background-color: rgb(250, 250, 250);
+				font-family: arial;
+				font-size: 14px;
+				color: black;
+				position: absolute;
+				z-index: 10;
+			}
+			
+			.timeline_phase {
+				float: left;
+				top: 1px;
+				height: 20px;
+				border-radius: 3px;
+				position: relative;
+				background-color: blue;
+				border: 1px solid gray;			
+			}
+		
+			.formbox {
+				position: absolute;
+				display: block;
+				border-radius: 10px;
+				border: 1px solid steelblue;
+				width: 30%;
+				left: 35%;
+				top: 20%;
+				height: 55%;
+				background-color: white;
+				font-family: arial;
+				font-size: 20px;
+				text-align: center;
+				box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);		
+			}
+			
+			.loginpage {
+				background-color: #B0C4DE;
+				overflow: hidden;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				display: none;
+				z-index: 20;				
+			}
+
+			.form_input {
+				font-family: "Roboto", sans-serif;
+				outline: 0;
+				background: #f2f2f2;
+				width: 50%;
+				border: 0;
+				margin: 0 0 15px;
+				padding: 15px;
+				box-sizing: border-box;
+				font-size: 14px;
+			}
+
+			.form_button {
+				font-family: "Roboto", sans-serif;
+				text-transform: uppercase;
+				outline: 0;
+				background: #0096FF;
+				width: 50%;
+				border: 0;
+				padding: 15px;
+				color: #FFFFFF;
+				font-size: 14px;
+				-webkit-transition: all 0.3 ease;
+				transition: all 0.3 ease;
+				cursor: pointer;
+			}
+			
+			.form_button:hover,.form button:active,.form button:focus {
+				background: #43A047;
+			}
+			
+			.toolicons {
+				color: steelblue;
+				
+			}
+
+		</style>
+
+	</head>
+
+
+	<body style="overflow-y: hidden;">
+	
+		<div id="loaderbox" style="background-color: steelblue; width: 30%; left: 35%; top: 35%; height: 30%; display: none; position: absolute; z-index: 20; border-radius: 10px;">
+		
+			<br>&nbsp;
+			<center>
+			<h2 style="color: white; font-family: arial;">Working...</h2>
+			<img src="three-dots.svg" style="width: 40%;">
+			</center>
+		
+		</div>
+	
+		<div id="mainlogin" class="loginpage">
+
+			<div class="formbox">
+					
+			<!-- <form name="loginpage" action="main.py" method="post"> -->
+			<h2><img src="safercare.png" style="width: 80%;"></h2>
+			<input class="form_input" type="text" id="username" name="username" placeholder="username"><br>
+			<input class="form_input" type="password" id="password" name="password" placeholder="password"><br>
+			<input type="hidden" id="mode" name="mode" value="login">
+			<button class="form_button" onclick="checkLogin();">login</button>
+			<!-- </form> -->		
+			
+			</div>
+			
+		</div>
+
+		<div id="delete_page" class="settings_window" style="height: 40%; width: 50%; left: 25%;">
+			<center><br><h2><span id="orderset_delete_title" name="orderset_delete_title" style="width: 150px;">Delete Order Set</span></h2></center>
+			<div style="left: 10%; width: 80%; height: 70%; position: absolute; overflow-y: auto; text-align: center;">
+				Order Set:
+				<br><select name="delete_field" id="delete_field" style="width: 300px;">
+				</select>
+				<br>&nbsp;<br>Delete Password: 
+				<br><input type="password" id="delete_password" name="delete_password" style="width: 300px;"><br>&nbsp;<br>
+				<div class="mainbutton" id="closedelbutton" style="float: center;" onclick="CloseDeletePage();">Close</div>
+				<div class="mainbutton" id="delbutton" style="float: center;" onclick="DeleteOrderSet();">Delete</div>
+			</div>
+		</div>
+
+		<div id="settings_page" class="settings_window">
+			<center><h2><span id="orderset_title" name="orderset_title">Order Set</span></h2></center>
+			<div style="left: 10%; width: 80%; height: 70%; position: absolute; overflow-y: auto;">
+				<table>
+					<tr>
+						<td width="30%">Unique ID:</td>
+						<td width="70%"><input type="text" id="unique_id_field" name="unique_id_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>Index:</td>
+						<td>
+						<input type="number" id="index_field" name="index_field" min="1" max="500">
+						</td>
+					</tr>
+					<tr>
+						<td>Order Set Title:</td>
+						<td><input type="text" id="order_title_field" name="order_title_field" style="width: 70%;"></td>
+					</tr>
+
+					<tr>
+						<td>Status:</td>
+						<td>
+							<select name="status_type_field" id="status_type_field" style="width: 70%;">
+								<option value="Draft DCW">1.Draft DCW</option>
+								<option value="MUM DCW">2.MUM DCW</option>
+								<option value="CIS Pharm">3.CIS Pharm</option>
+								<option value="CIS Labs">4.CIS Labs</option>
+								<option value="Stakeholder">5.XML Stakeholder</option>
+								<option value="XML Final">6.Final XML</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Original Source:</td>
+						<td>
+							<select name="source_field" id="source_field" style="width: 70%;">
+								<option value="nh">Northern Health PDF</option>
+								<option value="cst">CST</option>
+								<option value="tsso">TSSO</option>
+								<option value="other">Other</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Source Title:</td>
+						<td><input type="text" id="source_title_field" name="source_title_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>Source File:</td>
+						<td><input type="text" id="source_file_field" name="source_file_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>Updated:</td>
+						<td><input type="date" id="updated_field" name="updated_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>Order Class:</td>
+						<td>
+							<select name="orderclass_field" id="orderclass_field" style="width: 70%;">
+								<option value="Emergency Med">Emergency Med</option>
+								<option value="Critical Care / ICU">Critical Care / ICU</option>
+								<option value="Medicine">Medicine</option>
+								<option value="Mental Health / Substance Use">Mental Health / Substance Use</option>
+								<option value="Pediatrics">Pediatrics</option>
+								<option value="Surgery">Surgery</option>
+								<option value="Infectious Diseases">Infectious Diseases</option>
+								<option value="Medicine Palliative Care">Medicine Palliative Care</option>
+								<option value="Medicine, Cardiology">Medicine, Cardiology</option>
+								<option value="Obs/Gyne">Obs/Gyne</option>
+							</select>
+						</td>
+					</tr>
+										
+					<tr>
+						<td>Physician Message:</td>
+						<td>
+							<textarea id="physician_field" name="physician_field" style="width: 70%; height: 25%;"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>Draft DCW:</td>
+						<td>
+							<select name="draftdcw_field" id="draftdcw_field" style="width: 70%;">
+								<option value="Andrew">Andrew</option>
+								<option value="Carl">Carl</option>
+								<option value="Wesley">Wesley</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>CORx:</td>
+						<td>
+							<select name="corx_field" id="corx_field" style="width: 70%;">
+								<option value="Jean">Jean</option>
+								<option value="Jenn D">Jenn D</option>
+								<option value="Jessica">Jessica</option>
+								<option value="Kendra">Kendra</option>
+								<option value="Suzy">Suzy</option>
+								<option value="Jenn B">Jenn B</option>
+								<option value="Jess/Jenn/Suzy">Jess/Jenn/Suzy</option>
+								<option value="Jess/Suzy">Jess/Suzy</option>
+								<option value="Jenn/Suzy">Jenn/Suzy</option>
+
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Builder:</td>
+						<td>
+							<select name="builder_field" id="builder_field" style="width: 70%;">
+								<option value="Tyler">Tyler</option>
+								<option value="Patricia">Patricia</option>
+								<option value="Joanna">Joanna</option>
+								<option value="Amanda">Amanda</option>
+								<option value="Marit">Marit</option>
+								<option value="Patricia/Joanna">Patricia/Joanna</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td>Comment:</td>
+						<td><textarea id="comment_field" name="comment_field" style="width: 70%; height: 25%;"></textarea></td>
+					</tr>
+
+					<tr>
+						<td>Sent for Stakeholding:</td>
+						<td>
+							<!-- <input type="date" id="stakeholding_field" name="stakeholding_field" style="width: 70%;"> -->
+							<select name="stakeholding_field" id="stakeholding_field" style="width: 70%;">
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
+	
+						</td>
+					</tr>
+					<tr>
+						<td>MUM Stage:</td>
+						<td>
+							<select name="mum_stage_field" id="mum_stage_field" style="width: 70%;">
+								<option value="1">Stage 1</option>
+								<option value="2">Stage 2</option>
+								<option value="3">Stage 3</option>
+								<option value="4">Final</option>
+							</select>
+
+						</td>
+					</tr>
+					<tr>
+						<td>MUM Date:</td>
+						<td><input type="date" id="mum_date_field" name="mum_date_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>CIS Pharm Review:</td>
+						<td><input type="date" id="cis_pharm_field" name="cis_pharm_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>CIS Lab Review:</td>
+						<td><input type="date" id="cis_lab_field" name="cis_lab_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>CIS Diagnostic Review:</td>
+						<td><input type="date" id="cis_diagnostic_field" name="cis_diagnostic_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>PDF Title:</td>
+						<td><input type="text" id="pdf_title_field" name="pdf_title_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>PDF:</td>
+						<td><input type="text" id="pdf_field" name="pdf_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>CST Title:</td>
+						<td><input type="text" id="cst_title_field" name="cst_title_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>CST:</td>
+						<td><input type="text" id="cst_field" name="cst_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>DCW Title:</td>
+						<td><input type="text" id="dcw_title_field" name="dcw_title_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>DCW:</td>
+						<td><input type="text" id="dcw_field" name="dcw_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>XML Title:</td>
+						<td><input type="text" id="xml_title_field" name="xml_title_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>XML:</td>
+						<td><input type="text" id="xml_field" name="xml_field" style="width: 70%;"></td>
+					</tr>
+					<tr>
+						<td>Stakeholder Version:</td>
+						<td>
+							Start:<input type="date" id="v1_start_field" name="v1_start_field" style="width: 30%; left: 50px;" value="2023-05-22">
+							<br>End:<input type="date" id="v1_end_field" name="v1_end_field" style="width: 30%; left: 50px;" value="2023-06-23">
+						</td>
+					</tr>
+					<tr>
+						<td>Draft Version:</td>
+						<td>
+							Start:<input type="date" id="v2_start_field" name="v2_start_field" style="width: 30%;" value="2023-06-23">
+							<br>End:<input type="date" id="v2_end_field" name="v2_end_field" style="width: 30%;" value="2023-08-23">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Build Version:</td>
+						<td>
+							Start:<input type="date" id="v3_start_field" name="v3_start_field" style="width: 30%;" value="2023-08-24">
+							<br>End:<input type="date" id="v3_end_field" name="v3_end_field" style="width: 30%;" value="2023-09-10">
+						</td>
+					</tr>
+
+				</table>
+								
+			</div>
+
+			<div style="left: 10%; bottom: 5%; width: 80%; padding-top: 10px; height: 50px; position: absolute;">
+				<div class="mainbutton" id="savebutton" style="position: absolute; right: 0%;" onclick="saveDataWindow();">Save</div>
+				<div class="mainbutton" id="closebutton" style="position: absolute; right: 15%;" onclick="closeDataWindow();">Cancel</div>
+			</div>
+
+		</div>
+		<div id="banner" class="top_banner">
+			<img src="https://www.clinicalinformatics.ca/orderdashboard/SaferCare.png" style="height:45px; padding-left: 10px; padding-top: 10px;">
+			<div class="mainbutton" id="closebutton" style="right: 2%;" onclick="Logout();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</div>	
+			<div class="mainbutton" id="dashbutton" style="float: right;" onclick="alert('Coming Soon!');"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</div>
+			<div class="mainbutton" id="delbutton" style="float: right;" onclick="ShowDeletePage();"><i class="fa fa-window-close" aria-hidden="true"></i> Delete</div>
+			<div class="mainbutton" id="addbutton" style="float: right;" onclick="showWindow('add');"><i class="fa fa-plus-square" aria-hidden="true"></i> Add</div>
+			<div class="mainbutton" id="addbutton" style="float: right;" onclick="DownloadPage();"><i class="fa fa-download" aria-hidden="true"></i> Backup</div>
+			<div class="mainbutton" id="addbutton" style="float: right;" onclick="GetHelp();"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</div>
+
+		</div>
+		<div id="container" class="main_content"></div>
+
+		<script>
+
+			// Sample JSON data
+			var row;
+			var column_index = {};
+			var maindata = {};
+			
+			function DownloadPage() {
+			
+				window.open("main.py?mode=download", "_blank")
+			
+			}
+
+			function GetHelp() {
+			
+				window.open("https://healthbc-my.sharepoint.com/:p:/r/personal/andrew_deonarine_northernhealth_ca/Documents/DraftDCWs/tracker_instructions_jul4_2023.pptx?d=w7a89dd1b14a1476e9b7442d04801c24a&csf=1&web=1&e=aSUqUU", "_blank")
+			
+			}
+			
+			function GetCurrentDate() {
+
+				/*
+				const date = new Date();
+				let day = date.getDate();
+				let month = date.getMonth() + 1;
+				let year = date.getFullYear();
+				let currentDate = `${year}-${month}-${day}`;
+				*/
+				//let currentDate = `${month}-${day}-${year}`;			
+				var currentDate = new Date().toISOString().substr(0, 10);
+				return currentDate;
+			
+			}
+			
+			function GetTag(ttext) {
+
+				var tagcolors = {"Draft DCW": "blue", "CST DCW": "blue", "MUM DCW": "#00838F", "CIS Pharm": "#80CBC4", "CIS Labs": "#C8E6C9", "Stakeholder": "#9FA8DA", "XML Final": "#B0BEC5", "Tyler": "#1565C0", "Patricia": "#64B5F6", "Joanna": "#81D4FA", "Amanda": "#B2DFDB", "Marit": "#BBDEFB", "Patricia/Joanna": "#BBDEFB", "Jenn/Suzy": "#283593", "Jess/Suzy": "#283593", "Jess/Jenn/Suzy": "#283593", "Jean": "#283593", "Jenn D": "#512DA8", "Jessica": "#9575CD", "Kendra": "#AB47BC", "Suzy": "#B39DDB", "Jenn B": "#F06292", "Andrew": "#455A64", "Carl": "#78909C", "Wesley": "#B0BEC5", "NA": "darkgray"};
+
+				let ttag = '<span style="font-size: 8px; padding: 3px; background-color: ' + tagcolors[ttext] + '; color: white; border-radius: 2px;">';
+				ttag += ttext + "</span>";
+				
+				return ttag;
+			
+			}
+			
+			function GetDot(ttext, tlink, ttitle) {
+			
+				var circle_colors = {"CST": "blue", "NH": "green", "TSSO": "red", "Other": "gray"};
+				
+				let tdiv = '<div style="cursor: pointer; position: relative; display: block; font-size: 8px; width: 30px; ';
+				tdiv = tdiv + 'height: 30px; text-align: center; border-radius: 15px; line-height: 30px; background-color: ';
+				tdiv = tdiv + circle_colors[ttext] + '; color: white;"><a target="_blank" title="' + ttitle + '" style="color: white;" href="' + tlink + '">' + ttext + '</a></div>';
+				
+				return tdiv;
+			
+			}
+
+			function GetCheck(ttext) {
+			
+				var circle_colors = {"yes": "green", "no": "orange"};
+				var tyes = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+				var tno = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+				
+				let mycolor = 'green';
+				let mychar = tyes;
+				if ((ttext == 'no') || (ttext == '')) {
+					mycolor = 'orange';
+					mychar = tno;
+				}
+				
+				let tcode = '<span style="font-size: 16px; color: ' + mycolor + ';">' + mychar + '</span>';
+				
+				return tcode;
+			
+			}
+			
+			function GetMUM(tval) {
+			
+				var tHTML = '';
+				if ((tval == "1") || (tval == "2") || (tval == "3") || (tval == "4")) {
+					tHTML = '<img style="width: 24px;" src="Eo_circle_blue_number-' + tval + '.svg">';
+				}
+			
+				return tHTML;
+			
+			}
+
+			function GetStakeCheck(ttext, cid) {
+			
+				var circle_colors = {"yes": "blue", "no": "red"};
+				var tyes = '<i class="fa fa-check-square" aria-hidden="true"></i>';
+				var tno = '<i class="fa fa-times-rectangle" aria-hidden="true"></i>';
+				
+				let mycolor = 'blue';
+				let mychar = tyes;
+				let tcode = '<span style="font-size: 24px; cursor: pointer; color: ' + mycolor + ';" onclick="ShowPreview(\'' + cid + '\');">' + mychar + '</span>';
+				if ((ttext == 'no') || (ttext == '')) {
+					mycolor = 'red';
+					mychar = tno;
+					tcode = '<span style="font-size: 24px; color: ' + mycolor + ';">' + mychar + '</span>';
+				}
+				
+				
+				return tcode;
+			
+			}
+			
+			function ShowDeletePage() {
+
+				var tpage = document.getElementById("delete_page");
+				tpage.style.display = "block";
+				var tlist = document.getElementById("delete_field");
+				
+				// show order sets to delete
+				loadJsonData();
+				maindata.forEach(function(object) {
+					let option = document.createElement("option");
+					let tstr = object["Title"] + " (" + object["ID"] + ")";
+					let tval = object["ID"];
+					option.text = tstr;
+					option.value = tval;
+					tlist.add(option);
+				});
+
+			}
+			
+			function DeleteOrderSet() {
+				
+				// get order set and password
+				let torder = GetListVal("delete_field");
+				let tpass = document.getElementById("delete_password").value.trim();
+				var hpass = String(CryptoJS.SHA256(tpass)).valueOf();
+				
+				if (hpass == cpass) {
+
+					// delete the entry
+					//delete maindata[tindex];
+
+					// send delete to server
+					document.getElementById("loaderbox").style.display = "block";
+					delJsonData(torder);
+					
+				}
+				if (hpass != cpass) {
+					alert("Wrong Password. Please Try Again");
+				}
+
+			
+			}
+			
+			function CloseDeletePage() {
+				document.getElementById("delete_password").value = "";
+				document.getElementById("delete_page").style.display = "none";
+			}
+			
+			function ShowPreview(tid) {
+				window.open('https://clinicalinformatics.ca/orderdashboard/ehrviewer.html?mode=' + tid, '_blank');
+			}
+
+			function ShowChat(tid, ttitle) {
+				window.open('https://clinicalinformatics.ca/orderdashboard/chat.py?mode=chat&id=' + tid + '&title=' + ttitle, '_blank');			
+			}
+			
+			function ShowDetails(tid) {
+			
+				showWindow("existing");
+				
+				// find data
+				maindata.forEach(function(object) {
+				
+					var id = object["ID"];
+					if (id === tid) {
+						//console.log(object["Title"]);
+						console.log(id + "\t" + tid);
+						document.getElementById("orderset_title").innerHTML = object["Title"];
+						
+						// Index	Phase	Added to timeline	Order Set	Type	CST Order Set	NH Order Set	Word file needed?	Word Conversion Completed?	NH content in date?	Comments	Stakeholders	DCW Author	Rough MUM review	Second MUM review	Third MUM review	Discussion Board	Last MUM review	DCW to Load	XML Author	Updated	XML to Load	Zynx Link	Builder	Post-MUM review Cerner update	CIS Pharm review date completed	CIS Lab review date completed	CIS Diagnostics date completed	Final build
+												
+						document.getElementById("unique_id_field").value = object["ID"];
+						document.getElementById("index_field").value = object["Index"];
+						document.getElementById("order_title_field").value = object["Title"];
+						document.getElementById("updated_field").value = object["Updated"];
+						document.getElementById("orderclass_field").value = object["Order Class"];
+						
+						// set lists
+						document.getElementById("status_type_field").value = object["Status"];
+						document.getElementById("draftdcw_field").value = object["Draft DCW"];
+						document.getElementById("corx_field").value = object["CORx"];
+						document.getElementById("builder_field").value = object["Builder"];
+						document.getElementById("source_field").value = object["Source"].toLowerCase();						
+
+						// set other values
+						document.getElementById("source_title_field").value = object["Source_Title"];
+						document.getElementById("source_file_field").value = object["Source_File"];
+						document.getElementById("physician_field").value = object["Physician Message"];
+						document.getElementById("comment_field").value = object["Comment"];
+						document.getElementById("stakeholding_field").value = object["Stakeholding"];
+						document.getElementById("mum_stage_field").value = object["MUM Stage"];
+						document.getElementById("mum_date_field").value = object["MUM Date"];
+						document.getElementById("cis_pharm_field").value = object["CIS Pharm"];
+						document.getElementById("cis_lab_field").value = object["CIS Labs"];
+						document.getElementById("cis_diagnostic_field").value = object["CIS Diag"];
+						
+						document.getElementById("pdf_title_field").value = object["PDF_name"];
+						document.getElementById("pdf_field").value = object["PDF"];
+						document.getElementById("cst_title_field").value = object["CST_name"];
+						document.getElementById("cst_field").value = object["CST"];
+						document.getElementById("dcw_title_field").value = object["DCW_name"];
+						document.getElementById("dcw_field").value = object["DCW"];
+						document.getElementById("xml_title_field").value = object["Build_name"];
+						document.getElementById("xml_field").value = object["Build"];
+						
+						document.getElementById("v1_start_field").value = object["V1 Start"];
+						document.getElementById("v1_end_field").value = object["V1 End"];
+						document.getElementById("v2_start_field").value = object["V2 Start"];
+						document.getElementById("v2_end_field").value = object["V2 End"];
+						document.getElementById("v3_start_field").value = object["V3 Start"];
+						document.getElementById("v3_end_field").value = object["V3 End"];
+
+
+						// show lists
+						//getUserList("corx_list", object.dcw_owner);
+						//getUserList("hls_list", object.hls_owner);
+						//document.getElementById("corx_list").value = object.dcw_owner;								
+						//document.getElementById("hls_list").value = object.hls_owner;
+						
+						// set flag
+						//changeCurrentFlag(object.flag);
+
+						// set build status / location
+						//changeCurrentLocation(object.build_status);
+						
+						
+					}
+				});				
+			
+			}
+			
+			function ShowMainPage(cuser, cpass) {
+				document.getElementById("mainlogin").style.display = "none";
+				localStorage.setItem("p", cpass);
+				localStorage.setItem("u", cuser);
+				var jsonData = loadJsonData();
+				//LoadTable(jsonData);
+				//var ttable = document.getElementById("maintable");
+				//SetDragDrop(ttable);
+						
+			}
+			
+			function showLogin() {
+				var getUser = String(localStorage.getItem("u")).valueOf();
+				var getPass = String(localStorage.getItem("p")).valueOf();
+				if ((getPass != cpass) || (getUser != cuser)) {
+					document.getElementById("mainlogin").style.display = "block";
+					localStorage.setItem("p", "");
+					localStorage.setItem("u", "");
+				}
+				if ((getPass == cpass) && (getUser == cuser)) {
+					ShowMainPage(cuser, cpass);
+				}
+			}
+			
+			function checkLogin() {
+			
+				var tuser = document.getElementById("username").value.trim();
+				var tpass = document.getElementById("password").value.trim();
+				var huser = String(CryptoJS.SHA256(tuser)).valueOf();
+				var hpass = String(CryptoJS.SHA256(tpass)).valueOf();
+				
+				if (hpass == cpass) {
+					ShowMainPage(cuser, cpass);
+				}
+				if (hpass != cpass) {
+					alert("Please Try Again");
+					localStorage.setItem("p", "");
+					localStorage.setItem("u", "");
+				}
+				
+			}
+			
+			function showWindow(tmode) {
+				var tpage = document.getElementById("settings_page");
+				tpage.style.display = "block";
+				console.log("showWindow: " + tmode);
+								
+				if (tmode == "add") {
+					var currDate = new Date().toJSON().slice(0,10);
+					document.getElementById("orderset_title").innerHTML = "New Order Set";
+					document.getElementById("order_title_field").innerHTML = "New Order Set";
+					document.getElementById("index_field").value = maindata.length + 1;
+					document.getElementById("updated_field").value = currDate;
+					document.getElementById("orderclass_field").value = "Emerg";
+
+					//console.log("showWindow: " + tmode);
+					//console.log(document.getElementById("orderset_title").innerHTML);
+						
+					// set lists
+					document.getElementById("status_type_field").value = "Draft DCW";
+					document.getElementById("draftdcw_field").value = "";
+					document.getElementById("corx_field").value = "";
+					document.getElementById("builder_field").value = '';
+					document.getElementById("source_field").value = "nh";
+						
+					// set other values
+					document.getElementById("physician_field").value = "";
+					document.getElementById("source_title_field").value = "";
+					document.getElementById("source_file_field").value = "";
+					document.getElementById("comment_field").value = "No comment";
+					document.getElementById("stakeholding_field").value = "no";
+					document.getElementById("mum_stage_field").value = "1";
+					document.getElementById("mum_date_field").value = "";
+					document.getElementById("cis_pharm_field").value = "";
+					document.getElementById("cis_lab_field").value = "";
+					document.getElementById("cis_diagnostic_field").value = "";
+
+					document.getElementById("pdf_title_field").value = "";
+					document.getElementById("pdf_field").value = "";
+					document.getElementById("cst_title_field").value = "";
+					document.getElementById("cst_field").value = "";
+					document.getElementById("dcw_title_field").value = "";
+					document.getElementById("dcw_field").value = "";
+					document.getElementById("xml_title_field").value = "";
+					document.getElementById("xml_field").value = "";
+										
+					document.getElementById("v1_start_field").value = "2023-05-01";
+					document.getElementById("v1_end_field").value = "2023-06-18";
+					document.getElementById("v2_start_field").value = "2023-06-18";
+					document.getElementById("v2_end_field").value = "2023-06-30";
+					document.getElementById("v3_start_field").value = "2023-06-30";
+					document.getElementById("v3_end_field").value = "2023-07-31";
+
+				}
+			}
+
+			function hideWindow() {
+				var tpage = document.getElementById("settings_page");
+				tpage.style.display = "none";				
+			}
+			
+			function closeDataWindow() {
+				hideWindow();
+			}
+			
+			function saveDataWindow() {
+				document.getElementById("loaderbox").style.display = "block";
+				SaveMainData();
+				//hideWindow();
+			}
+			
+			function Logout() {
+				localStorage.setItem("p", "none");
+				localStorage.setItem("u", "none");
+				document.getElementById("mainlogin").style.display = "block";			
+			}
+			
+			function getDateDiff(date1str, date2str) {
+
+				const date1 = new Date(date1str);
+				const date2 = new Date(date2str);
+				const diffTime = Math.abs(date2 - date1);
+				const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+				return diffDays;
+			
+			}
+			
+			function ShowTimeline(v1s, v1e, v2s, v2e, v3s, v3e) {
+			
+				var dlen1 = getDateDiff(v1s, v1e);
+				var dlen2 = getDateDiff(v2s, v2e);
+				var dlen3 = getDateDiff(v3s, v3e);
+				var tper = (dlen1 + dlen2 + dlen3) / 90;
+				var plen1 = dlen1 * tper;
+				var plen2 = dlen2 * tper;
+				var plen3 = dlen3 * tper;				
+			
+				var tHTML = '<div style="width: 95%;">';
+				tHTML += '<div class="timeline_phase" style="background-color: green; width: ' + plen1 + '%;"></div>';
+				tHTML += '<div class="timeline_phase" style="background-color: blue; width: ' + plen2 + '%;"></div>';
+				tHTML += '<div class="timeline_phase" style="background-color: red; width: ' + plen3 + '%;"></div>';
+				tHTML += "</div>";
+				return tHTML;
+			
+			}
+
+			function tableToJson(table) { 
+				var data = [];
+				for (var i = 1; i < table.rows.length; i++) { 
+					var tableRow = table.rows[i]; 
+					var rowData = []; 
+					for (var j = 0; j < tableRow.cells.length; j++) { 
+						rowData.push(tableRow.cells[j].innerText);
+					} 
+					data.push(rowData); 
+				} 
+				return data; 
+			}
+			
+			function GetListVal(listid) {
+				var tnote_type = "NA";
+				var e = document.getElementById(listid);
+				if (e.selectedIndex > -1) {
+					tnote_type = e.options[e.selectedIndex].value;
+					var ttext = e.options[e.selectedIndex].text;
+				}
+				return tnote_type;			
+			}
+
+			function SaveMainData() {
+			
+				// update date
+				//ChangeOrderDetails();
+				var ctitle = document.getElementById("orderset_title").innerHTML;
+
+				// read data from fields
+				var tmpjson = {};
+								
+				tmpjson["ID"] = document.getElementById("unique_id_field").value;
+				tmpjson["Index"] = document.getElementById("index_field").value;
+				tmpjson["Title"] = document.getElementById("order_title_field").value;
+				tmpjson["Updated"] = document.getElementById("updated_field").value;
+				
+				// set lists
+				tmpjson["Order Class"] = GetListVal("orderclass_field");
+				tmpjson["Status"] = GetListVal("status_type_field");
+				tmpjson["Draft DCW"] = GetListVal("draftdcw_field");
+				tmpjson["CORx"] = GetListVal("corx_field");
+				tmpjson["Builder"] = GetListVal("builder_field");
+				tmpjson["Source"] = GetListVal("source_field");
+				
+				// set other values
+				tmpjson["Source_Title"] = document.getElementById("source_title_field").value;
+				tmpjson["Source_File"] = document.getElementById("source_file_field").value;
+				tmpjson["Physician Message"] = document.getElementById("physician_field").value;
+				tmpjson["Comment"] = document.getElementById("comment_field").value;
+				tmpjson["Stakeholding"] = document.getElementById("stakeholding_field").value;
+				tmpjson["MUM Stage"] = document.getElementById("mum_stage_field").value;
+				tmpjson["MUM Date"] = document.getElementById("mum_date_field").value;
+				tmpjson["CIS Pharm"] = document.getElementById("cis_pharm_field").value;
+				tmpjson["CIS Labs"] = document.getElementById("cis_lab_field").value;
+				tmpjson["CIS Diag"] = document.getElementById("cis_diagnostic_field").value;
+
+				tmpjson["PDF_name"] = document.getElementById("pdf_title_field").value;
+				tmpjson["PDF"] = document.getElementById("pdf_field").value;
+				tmpjson["CST_name"] = document.getElementById("cst_title_field").value;				
+				tmpjson["CST"] = document.getElementById("cst_field").value;
+				tmpjson["DCW_name"] = document.getElementById("dcw_title_field").value;
+				tmpjson["DCW"] = document.getElementById("dcw_field").value;
+				tmpjson["Build_name"] = document.getElementById("xml_title_field").value;
+				tmpjson["Build"] = document.getElementById("xml_field").value;
+				tmpjson["V1 Start"] = document.getElementById("v1_start_field").value;
+				tmpjson["V1 End"] = document.getElementById("v1_end_field").value;
+				tmpjson["V2 Start"] = document.getElementById("v2_start_field").value;
+				tmpjson["V2 End"] = document.getElementById("v2_end_field").value;
+				tmpjson["V3 Start"] = document.getElementById("v3_start_field").value;
+				tmpjson["V3 End"] = document.getElementById("v3_end_field").value;
+								
+				// Check for errors before saving / send to server
+				var terr = "";
+				if (tmpjson["Title"] == "") { terr = "\nTitle is missing."; }
+				if (tmpjson["ID"] == "") { terr = terr + "\nID is missing."; }
+				var tid = tmpjson["ID"].trim();
+				tid = tid.toLowerCase();
+				
+				if (ctitle == "New Order Set") {
+					maindata.forEach(function(object) {				
+						var id = object["ID"].trim();
+						id = id.toLowerCase();
+						if (id === tid) {
+							terr = terr + "\nUnique ID is already used: " + tid;
+						}
+					});
+				}
+
+				if (terr == "") {
+					console.log("saving data...");
+					saveJsonData(tmpjson);
+				}
+				
+				if (terr != "") {
+					alert("Error: " + terr);
+				}
+								
+			}
+			
+			function CloseSettingsWindows() {
+				var x = document.getElementById("settingsbox");
+				x.style.display = "none";
+			}
+			
+			function SetDragDrop() {
+
+				var ttable = document.getElementById("maintable");
+				var odata = tableToJson(ttable);
+				//console.log(JSON.stringify(odata));					
+			
+				for (var i = 1; i < ttable.rows.length; i++) { 
+					var tableRow = ttable.rows[i];
+					tableRow.draggable = true;
+
+					// set drag/drop
+					tableRow.addEventListener('dragstart', function(event) {
+						row = event.target;
+						console.log("start drag");
+						
+					});
+					tableRow.addEventListener('dragover', function(event) {
+						event.preventDefault();
+						let children = Array.from(event.target.parentNode.parentNode.children);
+		  
+						if (children.indexOf(event.target.parentNode) > children.indexOf(row))
+							event.target.parentNode.after(row);				
+						else
+							event.target.parentNode.before(row);					
+					});
+					tableRow.addEventListener('dragend', function(event) {
+						odata = tableToJson(ttable);
+						//console.log(JSON.stringify(odata));					
+					});
+					
+				} 
+						
+			}
+			
+			function SaveTable() {
+				var xhr = new XMLHttpRequest();
+				var url = "url";
+				xhr.open("POST", url, true);
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						var json = JSON.parse(xhr.responseText);
+						console.log(json.email + ", " + json.password);
+					}
+				};
+				var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
+				xhr.send(data);
+			}
+
+			function saveJsonData(tmpjson) {
+
+				var xhr = new XMLHttpRequest();
+				var url = "main.py?mode=savedata&data=" + encodeURIComponent(JSON.stringify(tmpjson));
+				xhr.open("GET", url, true);
+				//var url = "main.py";
+				//xhr.open("POST", url, true);
+				console.log(url);
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						// close the div
+						hideWindow();
+						maindata = JSON.parse(xhr.responseText);
+						LoadTable(maindata);
+						sortTable("Index");
+						document.getElementById("loaderbox").style.display = "none";
+
+						//loadJsonData();
+					}
+				};
+				//var data = "mode=savedata&data=" + encodeURIComponent(JSON.stringify(tmpjson));
+				//xhr.send(data);
+				
+				xhr.send(null);
+				//document.location.reload(true);
+
+				//console.log(url);
+
+			}
+
+			function delJsonData(tid) {
+
+				var xhr = new XMLHttpRequest();
+				var url = "main.py?mode=del&id=" + tid;
+				xhr.open("GET", url, true);
+				//var url = "main.py";
+				//xhr.open("POST", url, true);
+				console.log(url);
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						// close the div
+						//tresponse = JSON.parse(hr.responseText);
+						//console.clear();
+						CloseDeletePage();
+						//console.log(xhr.responseText);
+						maindata = JSON.parse(xhr.responseText);						
+						LoadTable(maindata);
+						sortTable("Index");
+						document.getElementById("loaderbox").style.display = "none";
+					}
+				};
+				//var data = "mode=savedata&data=" + encodeURIComponent(JSON.stringify(tmpjson));
+				//xhr.send(data);
+				
+				xhr.send(null);
+				//loadJsonData();
+				//document.location.reload(true);
+
+				//console.log(url);
+
+			}
+
+			function loadJsonData() {
+				data = {};
+				var hr = new XMLHttpRequest();
+				hr.open("GET", "maindata.js", true);
+				hr.setRequestHeader("Content-type", "application/json", true);
+				hr.onreadystatechange = function() {
+					if (hr.readyState == 4 && hr.status == 200) {
+						//console.log(hr.responseText);
+						maindata = JSON.parse(hr.responseText);						
+						LoadTable(maindata);
+						sortTable("Index");
+					}
+				}
+				hr.send(null);
+			}
+			
+			function LoadTable(jsonData) {
+			
+				var colwidths = {"Tools": "7%", "Index": "2%", "Source": "5%", "Status": "7%", "Updated": "5%", "Title": "8%", "Order Class": "5%", "CORx": "5%", "Builder": "5%", "Comment": "13%", "PDF": "2%", "Stakeholding": "3%", "MUM Stage": "3%", "MUM Date": "3%", "CIS Pharm": "2%", "CIS Labs": "2%", "CIS Diag": "2%", "CST": "2%", "DCW": "2%", "Build": "2%", "Timeline": "10%"};
+			
+				var link_fields = ["DCW", "PDF", "Build", "CST"];
+				var notext_fields = ["Tools", "Timeline"];
+				var hide_fields = ["ID"];
+				let container = document.getElementById("container");
+				container.innerHTML = "";
+				let table = document.createElement("table");
+				table.setAttribute("name", "maintable");
+				table.setAttribute("id", "maintable");
+				table.id = "maintable";
+				//let cols = Object.keys(jsonData[0]);
+				let thead = document.createElement("thead");
+				let tr = document.createElement("tr");
+				
+				//console.clear();
+				var colindex = 0;
+				//var cols = ["Tools", "Index", "Source", "Title", "Updated", "Order Class", "Status", "Draft DCW", "CORx", "Builder", "Physician Message", "Comment", "Stakeholding", "MUM Review 1", "MUM Review 2", "MUM Review 3", "MUM Final", "CIS Pharm", "CIS Labs", "CIS Diag", "DCW", "Build", "Timeline"];
+				var cols = ["Tools", "Index", "Source", "Title", "Updated", "Order Class", "Status", "Draft DCW", "CORx", "Builder", "Physician Message", "Comment", "Stakeholding", "MUM Stage", "MUM Date", "CIS Pharm", "CIS Labs", "CIS Diag", "DCW", "Build", "Timeline"];
+				for (var y=0; y<cols.length; y++) {
+
+					let item = cols[y];
+					let nitem = item.replace("Review", "");
+					nitem = nitem.replace("CIS ", "");
+					//nitem = nitem.replace("MUM ", "M");
+					let th = document.createElement("th");
+					th.innerText = nitem;
+					tr.appendChild(th);
+					th.setAttribute('width', colwidths[item]);
+					th.setAttribute('name', item);
+					th.setAttribute('id', item);					
+					th.style.fontSize = "8px";
+					th.style.cursor = "pointer";
+					th.style.position = "sticky";
+					th.style.top = "0px";
+					th.style.zIndex = "2";
+					
+					// set sorting
+					th.addEventListener('click', function(event) {
+						sortTable(this.id);
+					});
+					
+					column_index[item] = colindex;
+					colindex++;
+				}
+				thead.appendChild(tr);
+				table.append(tr);
+				 
+				// Loop through the JSON data and create table rows
+				jsonData.forEach((item) => {
+					let tr = document.createElement("tr");
+					let vals = Object.values(item);
+					//let ncols = Object.keys(item);
+					let td2 = document.createElement("td");
+					let cid = item["ID"].trim();
+					let ttitle = item["Title"].trim();
+					td2.innerHTML = '<i class="fa fa-cog" aria-hidden="true" style="font-size: 12px; color: steelblue; cursor: pointer;" onclick="ShowDetails(\'' + cid + '\');"></i>&nbsp;';
+					td2.innerHTML += '<i class="fa fa-comments" aria-hidden="true" style="font-size: 12px; color: steelblue; cursor: pointer;" onclick="ShowChat(\'' + cid + '\', \'' + ttitle + '\');";></i>&nbsp;';
+					td2.innerHTML += '<i class="fa fa-eye" aria-hidden="true" style="font-size: 12px; color: steelblue; cursor: pointer;" onclick="ShowPreview(\'' + cid + '\');"></i>';
+					tr.appendChild(td2); // Append the table cell to the table row
+					
+					var x=1;
+					//vals.forEach((elem) => {
+					for (x=1; x<cols.length - 1; x++) {
+						let tval = item[cols[x]];
+						if ((cols[x] == "Physician Message") || (cols[x] == "Title") || (cols[x] == "Comment")) {
+							tval = tval.substring(0, 30) + "...";
+						}
+						if ((cols[x] == "Status") || (cols[x] == "Builder") || (cols[x] == "CORx") || (cols[x] == "Draft DCW")) {
+							tval = GetTag(tval);
+						}
+						if (cols[x] == "Source") {
+							let tlink = item["Source_File"];
+							let ttitle = item["Source_Title"];
+							tval = GetDot(tval.toUpperCase(), tlink, ttitle);
+						}
+						if ((cols[x] == "CIS Pharm") || (cols[x] == "CIS Labs") || (cols[x] == "CIS Diag")) {
+							tval = GetCheck(tval);						
+						}
+						if (cols[x] == "MUM Stage") {
+							tval = GetMUM(item["MUM Stage"]);						
+						}
+						if (cols[x] == "Stakeholding") {
+							tval = GetStakeCheck(tval, cid);
+						}
+						//if (cols[x] == "Updated") {
+						//	tval = tval.substring(5);
+						//}
+						
+						let td = document.createElement("td");
+						td.style.fontSize = "10px"; 						
+						if (link_fields.includes(cols[x]) == false) {
+							td.innerHTML = tval;
+						}
+						if (link_fields.includes(cols[x]) == true) {
+							if (tval != "") {
+								td.innerHTML = '<a target="_blank" href="' + tval + '"><i class="fa fa-floppy-o" aria-hidden="true" style="color: blue; font-size: 16px; cursor: pointer;"></i></a>';
+							}
+							if (tval == "") {
+								td.innerHTML = '<i class="fa fa-square-o" aria-hidden="true" style="color: blue; font-size: 16px;"></i>';
+							}
+							
+						}
+						
+						// set row to light blue if missing CORx assignment
+						if (item["CORx"].trim() == "") {
+							tr.style = "background-color: lightblue !important";
+						}
+						
+						tr.appendChild(td);
+					}
+					
+					// now add the timeline at the end
+					let td3 = document.createElement("td");
+					td3.innerHTML = ShowTimeline(item["V1 Start"], item["V1 End"], item["V2 Start"], item["V2 End"], item["V3 Start"], item["V3 End"]);
+					tr.appendChild(td3); // Append the table cell to the table row
+					table.appendChild(tr); // Append the table row to the table
+										
+				});
+				container.appendChild(table) // Append the table to the container element
+			}			
+
+			function sortTable(tindex) {
+			  var table, rows, switching, i, x, y, shouldSwitch;
+			  table = document.getElementById("maintable");
+			  switching = true;
+   			  var cindex = column_index[tindex];
+			  while (switching) {
+				switching = false;
+				rows = table.rows;
+				for (i = 1; i < (rows.length - 1); i++) {
+				  shouldSwitch = false;
+				  x = rows[i].getElementsByTagName("TD")[cindex];
+				  y = rows[i + 1].getElementsByTagName("TD")[cindex];
+
+				  if (cindex != 1) {
+					  //if (parseInt(x.innerText.toLowerCase()) > parseInt(y.innerText.toLowerCase())) {
+					  if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
+						//if so, mark as a switch and break the loop:
+						shouldSwitch = true;
+						break;
+					  }
+				  }
+				  if (cindex == 1) {
+					  if (parseInt(x.innerText.toLowerCase()) > parseInt(y.innerText.toLowerCase())) {
+						//if so, mark as a switch and break the loop:
+						shouldSwitch = true;
+						break;
+					  }
+				  }
+
+				  
+				}
+				if (shouldSwitch) {
+				  /*If a switch has been marked, make the switch
+				  and mark that a switch has been done:*/
+				  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				  switching = true;
+				}
+			  }
+			}
+												
+			// show login
+			showLogin();
+
+		</script>
+
+	</body>
+
+</html>

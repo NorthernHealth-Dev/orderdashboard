@@ -1,0 +1,117 @@
+[
+  { "type": "title", "data": "GYN Gynecology Pre Operative (Day of Surgery)" },
+  { "type": "category", "data": "Patient Care" },
+  {
+    "type": "order",
+    "data": "Refer to Gynecology Surgery Pathway",
+    "value": ""
+  },
+  { "type": "sentence", "data": "T;N" },
+  { "type": "order", "data": "Vital Signs", "value": "checked" },
+  { "type": "sentence", "data": "once, on arrival" },
+  { "type": "order", "data": "Height/Length", "value": "checked" },
+  { "type": "sentence", "data": "T;N" },
+  { "type": "order", "data": "Weight", "value": "checked" },
+  { "type": "sentence", "data": "T;N" },
+  { "type": "category", "data": "Activity" },
+  { "type": "order", "data": "Activity as Tolerated", "value": "checked" },
+  { "type": "sentence", "data": "T;N" },
+  { "type": "category", "data": "Diet/Nutrition" },
+  { "type": "order", "data": "NPO for Procedure", "value": "checked" },
+  { "type": "sentence", "data": "T;N" },
+  { "type": "category", "data": "Continuous Infusions" },
+  {
+    "type": "order",
+    "data": "Insert Peripheral IV (Intravenous) Catheter\u00a0",
+    "value": "checked"
+  },
+  { "type": "sentence", "data": "T;N" },
+  { "type": "order", "data": "Saline Lock Peripheral IV", "value": "" },
+  { "type": "sentence", "data": "PRN" },
+  { "type": "category", "data": "Medications" },
+  { "type": "order", "data": "heparin", "value": "" },
+  {
+    "type": "sentence",
+    "data": "5,000 unit, subcutaneous, pre-op, drug form: inj"
+  },
+  {
+    "type": "note",
+    "data": "ceFAZolin can be safely administered to patients with penicillin allergy, including anaphylaxis. Do NOT administer if severe delayed skin reaction to any beta-lactam (e.g. drug reaction with eosinophilia and systemic symptoms, Stevens-Johnson syndrome, toxic epidermal necrolysis)",
+    "value": ""
+  },
+  { "type": "order", "data": "ceFAZolin", "value": "" },
+  { "type": "sentence", "data": "1,000 mg, IV, pre-op, drug form: bag" },
+  { "type": "sentence", "data": "2,000 mg, IV, pre-op, drug form: bag" },
+  { "type": "sentence", "data": "3,000 mg, IV, pre-op, drug form: bag" },
+  { "type": "order", "data": "metroNIDAZOLE", "value": "" },
+  { "type": "sentence", "data": "500 mg, IV, pre-op, drug form: bag" },
+  {
+    "type": "note",
+    "data": "If ceFAZolin allergic or contraindicated",
+    "value": ""
+  },
+  { "type": "order", "data": "clindamycin", "value": "" },
+  { "type": "sentence", "data": "600 mg, IV, pre-op" },
+  { "type": "sentence", "data": "900 mg, IV, pre-op" },
+  { "type": "order", "data": "acetaminophen", "value": "" },
+  { "type": "sentence", "data": "975 mg, PO, 30 min pre-op, drug form: tab" },
+  { "type": "order", "data": "diclofenac EC", "value": "" },
+  { "type": "sentence", "data": "50 mg, PO, pre-op, drug form: tab-EC" },
+  { "type": "order", "data": "diclofenac", "value": "" },
+  { "type": "sentence", "data": "50 mg, rectal, pre-op, drug form: supp" },
+  { "type": "order", "data": "naproxen", "value": "" },
+  { "type": "sentence", "data": "500 mg, PO, pre-op, drug form: tab" },
+  { "type": "order", "data": "famotidine", "value": "" },
+  { "type": "sentence", "data": "20 mg, PO, 60 min pre-op, drug form: tab" },
+  { "type": "order", "data": "famotidine", "value": "" },
+  { "type": "sentence", "data": "20 mg, IV, 30 min pre-op, drug form: inj" },
+  { "type": "order", "data": "metoclopramide", "value": "" },
+  { "type": "sentence", "data": "10 mg, PO, 60 min pre-op, drug form: tab" },
+  { "type": "order", "data": "metoclopramide", "value": "" },
+  { "type": "sentence", "data": "10 mg, IV, 30 min pre-op, drug form: inj" },
+  { "type": "order", "data": "LORazepam PRN range dose", "value": "" },
+  {
+    "type": "sentence",
+    "data": "dose range: 0.5 to 1 mg, sublingual, pre-op, PRN anxiety, drug form: tab-sublingual"
+  },
+  {
+    "type": "sub phase",
+    "data": "OR Procedural Sedation (Adult) (Module)",
+    "value": ""
+  },
+  { "type": "category", "data": "Blood Products" },
+  {
+    "type": "sub phase",
+    "data": "TM Red Blood Cell (RBC) Transfusion (Module)",
+    "value": ""
+  },
+  { "type": "order", "data": "Group and Screen", "value": "" },
+  { "type": "sentence", "data": "Urgent, Collection: T;N, once" },
+  { "type": "category", "data": "Laboratory" },
+  { "type": "order", "data": "CBC and Differential", "value": "" },
+  { "type": "sentence", "data": "Blood, Urgent, Collection: T;N, once" },
+  {
+    "type": "note",
+    "data": "For OUTPATIENTS, select Sodium and Potassium Panel (Electrolytes Panel Outpatient (Na, K))",
+    "value": ""
+  },
+  {
+    "type": "order",
+    "data": "Electrolytes Panel Outpatient (Na, K)",
+    "value": ""
+  },
+  { "type": "sentence", "data": "Blood, Urgent, Collection: T;N, once" },
+  {
+    "type": "order",
+    "data": "Electrolytes Urea Creatinine Panel",
+    "value": ""
+  },
+  { "type": "sentence", "data": "Blood, Urgent, Collection: T;N, once" },
+  { "type": "order", "data": "HCG Quantitative Blood", "value": "" },
+  { "type": "sentence", "data": "Blood, Urgent, Collection: T;N, once" },
+  { "type": "order", "data": "HCG Screen Urine", "value": "" },
+  { "type": "sentence", "data": "Urine, Urgent, Collection: T;N, once" },
+  { "type": "category", "data": "Diagnostic Tests" },
+  { "type": "order", "data": "Electrocardiogram 12 Lead", "value": "" },
+  { "type": "sentence", "data": "Urgent, Once" }
+]

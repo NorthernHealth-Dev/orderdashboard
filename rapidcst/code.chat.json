@@ -1,0 +1,21 @@
+{
+  "chat": [
+    {
+      "from": "Andrew",
+      "title": "Hello",
+      "to": "Andrew",
+      "date": "2023-04-27",
+      "message": "This is a test message",
+      "type": "message",
+      "id": 1
+    },
+    {
+      "title": "Code Order Set - Oxygen Therapy",
+      "to": "Everyone",
+      "date": "16-05-2023",
+      "message": "Please default check Oxygen Therapy and add flow rates",
+      "type": "physician",
+      "by": "Dr. Bob Smith"
+    }
+  ]
+}

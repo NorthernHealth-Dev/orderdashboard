@@ -1,0 +1,208 @@
+
+<html>
+
+	<head>
+		<title>SaferCare Order Set Dashboard</title>
+		<meta name="robots" content="noindex">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900%7COpen+Sans:300,400,500" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		<style>
+
+			.mainbody {
+				font-family: arial;
+			}
+
+			.main_button {
+				position: absolute;
+				width: 300px;
+				height: 35px;
+				padding-top: 6px;
+				background-color: steelblue;
+				color: white;
+				font-family: arial;
+				font-size: 18px;
+				border-radius: 12px;
+				text-align: center;
+				cursor: pointer;
+			}
+		
+		</style>
+		
+	</head>
+
+	<body style="padding: 0px; margin: 0px; overflow: auto;">
+	
+		<div id="main_banner" style="left: 0px; top: 0px; width: 100%; height: 90px;">
+				
+			<div style="left: 3%; top: 10px; width: 20%; height: 90px; position: absolute;">
+				<a href="index.html"><img src="SaferCare.png" style="height: 60px;"></a>
+			</div>
+
+			<div style="left: 10px; top: 35px; z-index: 10; width: 70%; left: 21%; position: absolute; text-align: right; font-family: 'Montserrat'; font-size: 14px;">
+				 <a href="introduction.html">Introduction</a> &nbsp; | &nbsp; <a href="reports.html">Reports</a> &nbsp; | &nbsp; <a href="documents.html">Documents</a> &nbsp; | &nbsp; <a href="ordersetlist.html">Electronic Order Sets</a> &nbsp; | &nbsp; <a href="reimbursement.html">Reimbursement</a> &nbsp; | &nbsp; <a href="contact.html">Contact</a> &nbsp; | &nbsp; <a href="tracker.html"><i class="fa fa-cog" aria-hidden="true"></i></a>
+			</div>
+				
+		</div>
+		
+		<div style="background-color: rgb(240, 245, 249); width: 100%; top: 90px; height: calc(100% - 90px);">
+		
+<center>
+<h1 style="font-family: 'Montserrat';">Order Set Dashboard</h1>
+
+<table style="border: 1px; width: 100%;">
+	<tr>
+		<td>
+			<canvas id="myChartA" style="width:400px; height: 300px;"></canvas>
+		</td>
+		<td>
+			<canvas id="myChartB" style="width:400px; height: 300px;"></canvas>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<canvas id="myChart" style="width:400px; height: 300px;"></canvas>
+		</td>
+		<td>
+			<canvas id="myChart2" style="width:400px; height: 300px;"></canvas>
+		</td>
+	</tr>
+</table>
+
+<script>
+
+function DrawGraph1() {
+	var xValues = ["Anesthesia", "ICU", "Emergency Medicine", "Infectious Disease", "LTC", "Medicine", "Medicine - Cardiology", "Mental Health/Substances", "Nephrology", "Obs/Gyne", "Oncology", "Palliative", "Pediatrics", "Surgery - General", "Surgery - Ophtho", "Surgery - Orthopedics", "Surgery - Urology"];
+	var yValues = [1, 16, 21, 17, 1, 11, 4, 18, 1, 33, 1, 4, 11, 6, 1, 1, 3];
+	var barColors = ["blue", "blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue"];
+
+	var ctx = document.getElementById("myChart").getContext("2d");
+	var Chart1 = new Chart(ctx, {
+	  type: "horizontalBar",
+	  data: {
+		labels: xValues,
+		datasets: [{
+		  backgroundColor: barColors,
+		  data: yValues
+		}]
+	  },
+	  options: {
+		indexAxis: 'y',
+		responsive: true,
+		maintainAspectRatio: false,
+		legend: {display: false},
+		title: {
+		  display: true,
+		  text: "Number of Order Sets Built by Medical Specialty"
+		}
+	  }
+	});
+}
+
+function DrawGraph2() {
+	var xValues2 = ["Jun 13", "Jun 18", "Jun 20", "Jun 23", "Jun 29", "Jul 3", "Jul 13", "Jul 22", "Aug 6", "Aug 19", "Sept 3", "Sept 8"];
+	var yValues2 = [30, 37, 44, 64, 84, 92, 105, 131, 139, 145, 151, 163];
+
+	var ctx2 = document.getElementById("myChart2").getContext("2d");
+	var Chart2 = new Chart(ctx2, {
+	  type: "line",
+	  data: {
+		labels: xValues2,
+		datasets: [{
+		  fill: false,
+		  lineTension: 0,
+		  backgroundColor: "rgba(0,0,255,1.0)",
+		  borderColor: "rgba(0,0,255,0.1)",
+		  data: yValues2
+		}]
+	  },
+	  options: {
+		responsive: true,
+		maintainAspectRatio: false,
+		legend: {display: false},
+		title: {
+		  display: true,
+		  text: "Number of Order Sets Built"
+		},
+		scales: {
+		  yAxes: [{ticks: {min: 0}}],
+		}
+	  }
+	});
+}
+
+function DrawGraph3() {
+	var xValues = ["CST Content", "NH Content", "Other Content"];
+	var yValues = ["256", "48", "12"];
+	var barColors = ["blue", "lightblue", "navy", "orange", "green", "red"];
+
+	var ctx = document.getElementById("myChartA").getContext("2d");
+	var Chart1 = new Chart(ctx, {
+	  type: "horizontalBar",
+	  data: {
+		labels: xValues,
+		datasets: [{
+		  backgroundColor: barColors,
+		  data: yValues
+		}]
+	  },
+	  options: {
+		indexAxis: 'y',
+		responsive: true,
+		maintainAspectRatio: false,
+		legend: {display: false},
+		title: {
+		  display: true,
+		  text: "Order Set Sources"
+		}
+	  }
+	});
+}
+
+function DrawGraph4() {
+	var xValues = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
+	var yValues = [1, 0, 1, 0, 0, 1, 2, 0, 0, 30, 69, 61, 56, 47, 32, 18];
+	var barColors = ["orange", "orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange"];
+
+	var ctx = document.getElementById("myChartB").getContext("2d");
+	var Chart1 = new Chart(ctx, {
+	  type: "horizontalBar",
+	  data: {
+		labels: xValues,
+		datasets: [{
+		  backgroundColor: barColors,
+		  data: yValues
+		}]
+	  },
+	  options: {
+		indexAxis: 'y',
+		responsive: true,
+		maintainAspectRatio: false,
+		legend: {display: false},
+		title: {
+		  display: true,
+		  text: "NH Order Sets by Renewal Date"
+		}
+	  }
+	});
+}
+
+
+// Drawing out Graphs
+DrawGraph1();
+DrawGraph2();
+DrawGraph3();
+DrawGraph4();
+
+</script>
+</center>
+
+
+		
+		</div>
+
+
+	</body>
+	
+</html>

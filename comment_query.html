@@ -1,0 +1,70 @@
+<html>
+
+	<head>
+		<title>Feedback Tracker</title>
+	</head>
+
+	<body>
+
+		<div id="query_output">
+
+		</div>
+
+		<script>
+
+			var totalcnt = 0;
+			var ncnt = 0;
+			var tHTML = "";
+			var numorders = 0;
+
+			function ajaxGetChat(maindata) {
+
+				fetch('./' + maindata + '.chat.json')
+					.then((response) => response.json())
+					.then((json) => ShowMessages(json, maindata));
+
+			}
+
+			// load messages
+			function ShowMessages(chatdata, maindata) {
+
+				var tHTML = "";
+				ncnt = 0;
+				chatdata["chat"].forEach(function(object) {
+					//console.log("Object: " + JSON.stringify(object));
+					var ttitle = object.title;
+					var tby = object.by;
+					var tto = object.to;
+					var tdate = object.date;
+					var tmessage = object.message;
+					var ttype = object.type;
+
+					//var titem = showMsg(ttype, ttitle, tby, tto, tdate, tmessage);
+					//console.log(titem);
+					//tHTML += titem;
+					ncnt++;
+				});
+
+				if (ncnt > 1) {numorders++;}
+				totalcnt = totalcnt + ncnt;
+				totalcnt = totalcnt - 1;
+				var tstr = "Number of messages for " + maindata + ": " + ncnt + " total: " + totalcnt + " number of order sets: " + numorders;
+				console.log(tstr);
+				tHTML = tHTML + tstr;
+				return ncnt;
+			}
+	
+			var idlist = ["baricitinib.js", "covidadmit.js", "covidicuadmit.js", "remdesivir.js", "sotorvimab.js", "tocilizumab.js", "dietenteral.js", "abdo.js", "allergy.js", "asthma.js", "bbfe.js", "hyperemesis.js", "chestpain.js", "code.js", "headache.js", "covidadmit.js", "majorburn.js", "opioid.js", "nausea.js", "sedate.js", "seizure.js", "assault.js", "sob.js", "spine.js", "vaginalbleed.js", "icuadmit.js", "lctadmit.js", "medadmit.js", "eatingdo.js", "psychadmit.js", "pedadmit.js", "surgadmit.js", "paxlovid.js", "ards.js", "gdelirium.js", "medvte.js", "palcovid.js", "palcrisis.js", "palsx.js", "cardhfail.js", "cardstemi.js", "cardnstemi.js", "cardstemifib.js", "crit_sepsis.js", "ped_code_trauma.js", "ped_sepsis28.js", "cdiff.js", "menin.js", "hap.js", "medprovte.js", "pedacet.js", "pedacasthma.js", "pedsepsisg29.js", "bloodstat.js", "bloodtrans.js", "medpicc.js", "clozmod.js", "clozslow.js", "clozmain.js", "obpostvte.js", "orthofracthipvte.js", "gihpylori.js", "idasppneu.js", "idfebneu.js", "idpneumocap.js", "idambiv.js", "idcellskin.js", "idltcinflu.js", "idpyelo.js", "gialchep.js", "obantehem.js", "obbakri.js", "obchorio.js", "obiugrinvest.js", "obrhig.js", "pednechako.js", "susawmu.js", "critcrrt.js", "susacuteopioidw.js", "susbuphrensubox.js", "susnicorep.js", "critsedana.js", "edburphensub.js", "pedbronchio.js", "pedfebneut.js", "surgvte.js", "surgleech.js", "pedmgadmit.js", "pallsedate.js", "obhivpos.js", "obantevteprop.js", "icuorgandonate.js", "icuextub.js", "aneslabour.js", "edhyperk.js", "obfallopian.js", "obpreopcs.js", "obpostcs.js", "oncbacillus.js", "pedbronch.js", "pednewborn.js", "nephperidia.js", "obnifedtoco.js", "surgthorpost.js", "surgthorpre.js", "uroextraswl.js", "uropostnonemurosurg.js", "uropreopemmajuro.js", "gynabnomutbleed.js", "obgestdiaintra.js", "obgestdiapost.js", "obgesthtnpre.js", "obgroupbstrepproph.js", "obmagsulffetal.js", "ophcatextintra.js", "gynmethoect.js", "mhagitatemed.js", "mhrapidtranq.js", "icustatusepi.js", "mhbipolardo.js", "mhsusopioid.js", "icucervspine.js", "icupulmemb.js", "icusubhem.js", "mhform4x1.js", "mhform4x2.js", "mhedform4x1.js", "mhedform4x2.js", "mhlithadm.js", "mhlithpre.js", "icucervthorlump.js", "icustandbowelpro.js", "surgbowelpreop.js", "obprepprom.js", "oblabourdel.js", "obhivhiintra.js", "obfetalloss13wk.js", "obanteadmit.js", "critelectrorep.js", "critcomfort.js", "obvagdevposasst.js", "obvagdevpos.js", "obposthemorr.js", "obemergpreop.js", "gynpostoppainsx.js", "gynoncpathspec.js", "gynmanvacasp.js", "oboxyindaug.js", "obhyperdispreg.js", "neurothrombtherstroke.js", "gyneeraspreop.js", "edfrostbitegr24.js", "edfrostbitegr1.js", "vaccpostsplen.js", "susmethopioiddo.js", "nipedvagbleed.js", "nipedstrokesx.js", "nipedsob.js", "nipedsepsislike.js", "nipedradiodist.js", "nipedhypergly.js", "nipedabdopain.js", "idventilvap.js", "idvancoinit.js"];
+			tHTML = "";
+			for (var x=0; x<idlist.length; x++) {
+
+				var tfile = idlist[x].replace('.js', '');
+				ajaxGetChat(tfile);
+				//tHTML = tHTML + "<br>" + tfile + ": " + ncnt;
+			}
+
+		</script>
+
+	</body>
+
+</html>

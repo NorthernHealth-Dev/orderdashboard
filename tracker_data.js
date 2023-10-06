@@ -1,0 +1,2 @@
+var cuser = "c54a97d875ef4ee345bd40212046242d2a9de9cc83adc21e912d79dcfbccf176";
+var cpass = "6c3ae5db21bacda3013bdcce68b3b2667bf2c03bad888eca5736f82b6b7569d7";

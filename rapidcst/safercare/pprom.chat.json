@@ -1,0 +1,20 @@
+{
+  "chat": [
+    {
+      "title": "Check the default options",
+      "to": "Everyone",
+      "date": "14-05-2023",
+      "message": "Looking forward to using this to gather physician input",
+      "type": "physician",
+      "by": "You will need to check default options"
+    },
+    {
+      "title": "I am trying to add comments",
+      "to": "Everyone",
+      "date": "14-05-2023",
+      "message": "Let's try to add more content and sections to this order set. Can you view order sentences?",
+      "type": "physician",
+      "by": "Andrew D"
+    }
+  ]
+}

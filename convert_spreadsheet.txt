@@ -1,0 +1,56 @@
+import openpyxl
+from xml.dom import minidom
+from collections import defaultdict
+import glob
+import json
+import sys
+
+#tfile = "OB Chorioamnionitis.xlsx"
+tfile = sys.argv[1]
+book = openpyxl.load_workbook(tfile)
+	
+# get the right sheet - the only sheet, "MUM" sheet, or the active sheet 
+sheet = book.active
+
+row_count = sheet.max_row
+column_count = sheet.max_column
+
+tjson = []
+ttitle = sheet.cell(row=4, column=1).value
+titem = {"type": "title", "data": ttitle}
+tjson.append(titem)
+
+for x in range(5, row_count):
+		
+	# get values
+	tcat = str(sheet.cell(row=x, column=3).value)
+	tcat = tcat.strip()
+	if (tcat != "") and (tcat != "None"):
+		titem = {"type": "category", "data": tcat}
+		tjson.append(titem)
+	ttype = str(sheet.cell(row=x, column=5).value)
+	tcheck = str(sheet.cell(row=x, column=7).value)
+	tdata = str(sheet.cell(row=x, column=8).value)
+	tsentence = str(sheet.cell(row=x, column=10).value)
+
+	ncheck = ""
+	ttype = ttype.strip()
+	tsentence = tsentence.strip()
+	if (ttype != "") and (ttype != "None"):
+		if (tdata != "") and (tdata != "None"):
+			ttype = ttype.lower()
+			if tcheck == "X":
+				ncheck = "checked"
+			titem = {"type": ttype, "data": tdata, "value": ncheck}
+		tjson.append(titem)
+
+	if (tsentence != ""):
+		titem = {"type": "sentence", "data": tsentence}
+		tjson.append(titem)
+		
+# output JSON
+#f = open(tfile + ".json", "w")
+#f.write(json.dumps(tjson) + "\n")
+#f.close()		
+
+print(json.dumps(tjson))
