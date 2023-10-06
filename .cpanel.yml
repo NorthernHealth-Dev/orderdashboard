@@ -6,3 +6,4 @@ deployment:
     - cp *.png $DEPLOYPATH
     - cp *.json $DEPLOYPATH
     - cp *.js $DEPLOYPATH
+    - cp *.jpg $DEPLOYPATH
