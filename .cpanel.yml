@@ -2,4 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/orderyhd/public_html/orderdashboard/
-    - cp index.html $DEPLOYPATH
+    - cp *.html $DEPLOYPATH
+    - cp *.png $DEPLOYMENTPATH
+    - cp *.json $DEPLOYMENTPATH
+    - cp *.js $DEPLOYMENTPATH
